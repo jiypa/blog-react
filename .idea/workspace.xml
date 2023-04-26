@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="">
+    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="Change">
       <change afterPath="$PROJECT_DIR$/src/Color.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/assets/styles/global.less" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/ArticleCard/index.module.less" afterDir="false" />
@@ -171,7 +171,7 @@
       <workItem from="1682068260206" duration="50212000" />
       <workItem from="1682326421105" duration="1286000" />
       <workItem from="1682327758579" duration="22387000" />
-      <workItem from="1682430804473" duration="13168000" />
+      <workItem from="1682430804473" duration="13853000" />
     </task>
     <task id="LOCAL-00001" summary="Change 项目初始化">
       <created>1681454617946</created>
@@ -236,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682517250863</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Change 更新 .idea 文件夹">
+      <created>1682518172866</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682518172866</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +267,7 @@
     <MESSAGE value="Change 状态初始化" />
     <MESSAGE value="Change 更新项目依赖" />
     <MESSAGE value="Change 添加图片资源" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change 添加图片资源" />
+    <MESSAGE value="Change 更新 .idea 文件夹" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 更新 .idea 文件夹" />
   </component>
 </project>
