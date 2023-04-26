@@ -5,11 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/hooks/useRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Color.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/global.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleCard/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleCard/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleEditor/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleEditor/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleMeta/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleMeta/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BackTop/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FootBar/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FootBar/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoadingBackdrop/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoginDialog/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoginDialog/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MetaIcon/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NavBar/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NavBar/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchBar/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchBar/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Separator/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TipMenu/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ToolCard/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ToolCard/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useEnqueueSnackbar/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useLoading/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useQueryParams/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useRequest/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useScrollTop/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useUrl/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/loading/index.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/router/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/AboutView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/AboutView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/ArchiveView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/ArchiveView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/ArticleView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/ArticleView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/HomeView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/HomeView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/NotFoundView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/NotFoundView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/SearchView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/SearchView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/ToolView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserCreateView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserCreateView/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserDesktopView/index.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserDesktopView/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,13 +68,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="Less File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -41,10 +95,12 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/yeebay/Desktop/blog-react&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -52,12 +108,31 @@
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/yeebay/Desktop/blog-react/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/reducers/loading" />
+      <recent name="$PROJECT_DIR$/src/views/UserView/UserCreateView" />
+      <recent name="$PROJECT_DIR$/src/hooks/useUrl" />
+      <recent name="$PROJECT_DIR$/src/hooks/useRequest" />
+      <recent name="$PROJECT_DIR$/src/hooks/useQueryParams" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -71,6 +146,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -83,6 +159,19 @@
       <option name="presentableId" value="Default" />
       <updated>1681403583924</updated>
       <workItem from="1681403585274" duration="6201000" />
+      <workItem from="1681455636900" duration="9083000" />
+      <workItem from="1681470649896" duration="50001000" />
+      <workItem from="1681721828462" duration="51000" />
+      <workItem from="1681721958043" duration="45636000" />
+      <workItem from="1681878575350" duration="10847000" />
+      <workItem from="1681895385595" duration="16950000" />
+      <workItem from="1681968983236" duration="5558000" />
+      <workItem from="1681984605753" duration="13375000" />
+      <workItem from="1682059973987" duration="1582000" />
+      <workItem from="1682068260206" duration="50212000" />
+      <workItem from="1682326421105" duration="1286000" />
+      <workItem from="1682327758579" duration="22387000" />
+      <workItem from="1682430804473" duration="13168000" />
     </task>
     <task id="LOCAL-00001" summary="Change 项目初始化">
       <created>1681454617946</created>
@@ -91,7 +180,63 @@
       <option name="project" value="LOCAL" />
       <updated>1681454617946</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Change 代码格式化">
+      <created>1681455867587</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681455867587</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Change 更新项目依赖">
+      <created>1681823358494</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681823358494</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Change store 初始化">
+      <created>1681824919922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681824919922</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Change 更新项目依赖">
+      <created>1681833676642</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681833676642</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Change 更新项目依赖">
+      <created>1682148253382</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682148253382</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Change 更新项目依赖">
+      <created>1682159518878</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682159518878</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Change 更新项目依赖">
+      <created>1682504078347</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682504078348</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Change 添加图片资源">
+      <created>1682517250863</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682517250863</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +256,10 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Change 项目初始化" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change 项目初始化" />
+    <MESSAGE value="Change 代码格式化" />
+    <MESSAGE value="Change 状态初始化" />
+    <MESSAGE value="Change 更新项目依赖" />
+    <MESSAGE value="Change 添加图片资源" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 添加图片资源" />
   </component>
 </project>
