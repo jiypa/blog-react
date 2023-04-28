@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loadingReducer from '../reducers/loadingReducer';
+import loadingReducer from '../reducers/loading';
 
 export default configureStore({
 	reducer: {
