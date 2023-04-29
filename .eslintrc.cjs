@@ -35,6 +35,11 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
+		],
+		// 大括号左右两边保留空格
+		'object-curly-spacing': [
+			'error',
+			'always'
 		]
 	}
 };
