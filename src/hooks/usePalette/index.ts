@@ -3,6 +3,8 @@ export default function usePalette() {
 	const palette = {
 		c_white: '#ffffff',
 		c_black: '#000000',
+		c_blue_a: '#f0f8ff',
+		c_blue_b: '#cce7ff',
 
 		c_main_white: '#f0f0f0',
 		c_main_gray: '#e2e2e2',
