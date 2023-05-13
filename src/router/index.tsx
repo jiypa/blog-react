@@ -8,6 +8,7 @@ import ToolView from '../views/ToolView';
 import AboutView from '../views/AboutView';
 import UserDesktopView from '../views/UserView/UserDesktopView';
 import UserCreateView from '../views/UserView/UserCreateView';
+import UserEditView from '../views/UserView/UserEditView';
 import ArticleView from '../views/ArticleView';
 import NotFoundView from '../views/NotFoundView';
 
@@ -49,6 +50,10 @@ const router = createHashRouter([
 					{
 						path: 'create',
 						element: <UserCreateView/>
+					},
+					{
+						path: 'edit/p/:pid',
+						element: <UserEditView/>
 					},
 				],
 			},
