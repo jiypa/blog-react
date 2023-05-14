@@ -36,7 +36,7 @@ interface Props {
 	setState: (state: State) => void;
 }
 
-const Categories = ['前端', '后端', '算法', '网络', '安全', '大数据', '人工智能'];
+const categories = ['前端', '后端', '算法', '网络', '安全', '大数据', '人工智能'];
 
 export default forwardRef(function ArticleMetaDialog(props: Props, ref) {
 	const { state, setState } = props;
@@ -84,7 +84,7 @@ export default forwardRef(function ArticleMetaDialog(props: Props, ref) {
 						input={<OutlinedInput label={'文章分类'}/>}
 						onChange={(event) => setState({ ...state, category: event.target.value })}
 					>
-						{Categories.map((category, index) => <MenuItem value={category} key={index}>{category}</MenuItem>)}
+						{categories.map((category, index) => <MenuItem value={category} key={index}>{category}</MenuItem>)}
 					</Select>
 				</FormControl>
 				<TextField
