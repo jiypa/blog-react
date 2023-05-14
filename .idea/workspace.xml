@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="Change 封装 token 设置器 hook">
+    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +45,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/yeebay/Desktop/blog-react/src/components/ArticleInfoDialog&quot;,
@@ -56,7 +57,7 @@
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/yeebay/Desktop/blog-react/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -127,28 +128,8 @@
       <workItem from="1683394662041" duration="12410000" />
       <workItem from="1683471447845" duration="28944000" />
       <workItem from="1683641236655" duration="37804000" />
-      <workItem from="1683839938607" duration="34166000" />
-    </task>
-    <task id="LOCAL-00026" summary="Change 封装右上角 toast 提示弹窗 hook">
-      <created>1682675394537</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1682675394537</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Change 封装请求响应拦截器 hook">
-      <created>1682692560742</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1682692560742</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Change 封装全局路由">
-      <created>1682693232736</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1682693232736</updated>
+      <workItem from="1683839938607" duration="34218000" />
+      <workItem from="1684064728187" duration="1216000" />
     </task>
     <task id="LOCAL-00029" summary="Change 封装根组件">
       <created>1682693469002</created>
@@ -472,7 +453,28 @@
       <option name="project" value="LOCAL" />
       <updated>1684064315643</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Change 更新 .idea 文件夹">
+      <created>1684064444667</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1684064444667</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Change 添加后台系统拦截逻辑">
+      <created>1684065891352</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1684065891356</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Change 更新 .ignore 文件">
+      <created>1684066042817</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1684066042817</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,8 +504,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Change 封装全局底部栏组件" />
-    <MESSAGE value="Change 调整注释位置" />
     <MESSAGE value="Change 更新文章元数据弹窗组件" />
     <MESSAGE value="Change 封装登录/注册弹窗组件" />
     <MESSAGE value="Change 封装文章元数据项组件" />
@@ -524,9 +524,11 @@
     <MESSAGE value="Change 添加用户「创作中心」页面" />
     <MESSAGE value="Change 添加用户「文章编辑」页面" />
     <MESSAGE value="Change 添加用户「我的桌面」页面" />
-    <MESSAGE value="Change 更新 .idea 文件夹" />
     <MESSAGE value="Change 更新全局样式" />
     <MESSAGE value="Change 封装文章编辑器组件" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change 封装文章编辑器组件" />
+    <MESSAGE value="Change 更新 .idea 文件夹" />
+    <MESSAGE value="Change 添加后台系统拦截逻辑" />
+    <MESSAGE value="Change 更新 .ignore 文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 更新 .ignore 文件" />
   </component>
 </project>
