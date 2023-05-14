@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,13 +128,7 @@
       <workItem from="1683641236655" duration="37804000" />
       <workItem from="1683839938607" duration="34218000" />
       <workItem from="1684064728187" duration="1216000" />
-    </task>
-    <task id="LOCAL-00029" summary="Change 封装根组件">
-      <created>1682693469002</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1682693469002</updated>
+      <workItem from="1684066422784" duration="63000" />
     </task>
     <task id="LOCAL-00030" summary="Change 删除 index.css 文件">
       <created>1682693682932</created>
@@ -474,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684066042817</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Change 更新 .idea 文件夹">
+      <created>1684066466895</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1684066466895</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,9 +525,9 @@
     <MESSAGE value="Change 添加用户「我的桌面」页面" />
     <MESSAGE value="Change 更新全局样式" />
     <MESSAGE value="Change 封装文章编辑器组件" />
-    <MESSAGE value="Change 更新 .idea 文件夹" />
     <MESSAGE value="Change 添加后台系统拦截逻辑" />
     <MESSAGE value="Change 更新 .ignore 文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change 更新 .ignore 文件" />
+    <MESSAGE value="Change 更新 .idea 文件夹" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 更新 .idea 文件夹" />
   </component>
 </project>
