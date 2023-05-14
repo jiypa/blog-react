@@ -1,8 +1,8 @@
+// 加载蒙层组件
 import React from 'react';
 import { Backdrop, CircularProgress } from '@mui/material';
 import useLoading from '../../hooks/useLoading';
 
-// 加载蒙层组件
 export default function LoadingBackdrop() {
 	const [loading] = useLoading();
 
