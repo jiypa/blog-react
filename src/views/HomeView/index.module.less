@@ -1,0 +1,37 @@
+@import '../../assets/styles/style';
+
+.leftContainer {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+.rightItem {
+    padding: 20px 0;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    background-color: @c_white;
+
+    .flexCenter();
+    flex-direction: column;
+
+    p {
+        font-size: 14px;
+        color: @c_font_black;
+    }
+
+    &:last-child {
+        p {
+            &:hover {
+                cursor: pointer;
+                color: @c_main_blue;
+            }
+        }
+    }
+}
+.paginationContainer {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: @c_white;
+}
