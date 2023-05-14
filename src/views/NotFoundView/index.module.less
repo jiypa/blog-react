@@ -1,0 +1,50 @@
+@import '../../assets/styles/style';
+
+.bg {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/images/img_error.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bgModal {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1, p {
+        color: @c_main_white;
+    }
+
+    h1 {
+        font-size: 100px;
+    }
+
+    p {
+        font-size: 30px;
+    }
+}
+.button {
+    padding: 10px;
+    border: 1px solid @c_main_white;
+    border-radius: 8px;
+
+    p {
+        font-size: 16px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
