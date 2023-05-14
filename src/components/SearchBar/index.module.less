@@ -1,0 +1,33 @@
+@import '../../assets/styles/style';
+
+.container {
+    width: 200px;
+    height: 24px;
+    align-self: center;
+    border: 1px solid @c_main_white;
+    border-radius: 12px;
+
+    input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+}
+.containerActive {
+    .container();
+    border: 1px solid @c_font_black;
+}
+.input {
+    color: @c_main_white;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+.inputActive {
+    color: @c_font_black;
+
+    &::placeholder {
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
