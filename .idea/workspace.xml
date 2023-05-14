@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="Change 封装 token 设置器 hook">
-      <change afterPath="$PROJECT_DIR$/src/components/ArticleEditor/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ArticleEditor/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserDesktopView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserDesktopView/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,35 +127,7 @@
       <workItem from="1683394662041" duration="12410000" />
       <workItem from="1683471447845" duration="28944000" />
       <workItem from="1683641236655" duration="37804000" />
-      <workItem from="1683839938607" duration="30248000" />
-    </task>
-    <task id="LOCAL-00022" summary="Change 将 loadingReducer 文件夹重新改为 loading 文件夹">
-      <created>1682659571471</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1682659571471</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Change 加载中状态控制器 hook">
-      <created>1682660262320</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1682660262320</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Change 封装加载蒙层组件">
-      <created>1682660448298</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1682660448298</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Change 删除 App.css 文件">
-      <created>1682673879880</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1682673879880</updated>
+      <workItem from="1683839938607" duration="34166000" />
     </task>
     <task id="LOCAL-00026" summary="Change 封装右上角 toast 提示弹窗 hook">
       <created>1682675394537</created>
@@ -476,7 +444,35 @@
       <option name="project" value="LOCAL" />
       <updated>1684059818568</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Change 添加用户「我的桌面」页面">
+      <created>1684059860692</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059860692</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Change 更新 .idea 文件夹">
+      <created>1684059983350</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059983352</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Change 更新全局样式">
+      <created>1684064205992</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1684064205992</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Change 封装文章编辑器组件">
+      <created>1684064315643</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1684064315643</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,10 +502,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Change 封装文章元数据组件" />
-    <MESSAGE value="Change 封装文章元数据弹窗组件" />
-    <MESSAGE value="Change 封装回到顶部组件" />
-    <MESSAGE value="Change 封装空状态组件" />
     <MESSAGE value="Change 封装全局底部栏组件" />
     <MESSAGE value="Change 调整注释位置" />
     <MESSAGE value="Change 更新文章元数据弹窗组件" />
@@ -531,6 +523,10 @@
     <MESSAGE value="Change 添加「工具」页面" />
     <MESSAGE value="Change 添加用户「创作中心」页面" />
     <MESSAGE value="Change 添加用户「文章编辑」页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change 添加用户「文章编辑」页面" />
+    <MESSAGE value="Change 添加用户「我的桌面」页面" />
+    <MESSAGE value="Change 更新 .idea 文件夹" />
+    <MESSAGE value="Change 更新全局样式" />
+    <MESSAGE value="Change 封装文章编辑器组件" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 封装文章编辑器组件" />
   </component>
 </project>
