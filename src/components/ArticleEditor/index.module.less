@@ -1,0 +1,29 @@
+@import '../../assets/styles/style';
+
+.toolBar {
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 50px;
+    border-bottom: 1px solid @c_main_gray;
+
+    .flexCenter();
+}
+.toolBarActive {
+    .toolBar();
+
+    box-shadow:0 2px 2px rgba(20, 20, 20, 0.1);
+}
+.readOnlyEditor {
+    width: calc(100% - 50px * 2);
+    min-height: 100vh;
+    padding: 30px 50px;
+    background-color: @c_white;
+}
+.editor {
+    .readOnlyEditor();
+
+    position: relative;
+    top: 90px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
