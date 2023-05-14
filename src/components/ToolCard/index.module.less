@@ -1,0 +1,69 @@
+@import '../../assets/styles/style';
+
+.container {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 4px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    background-color: @c_white;
+}
+.title {
+    padding: 16px;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: @c_font_black;
+}
+.content {
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.toolItemContainer {
+    width: 20%;
+    height: 60px;
+
+    .flexCenter();
+}
+.toolItem {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .hvr-sweep-to-right();
+}
+/* 以下动效来自 Hover.css: https://ianlunn.github.io/Hover/ */
+.hvr-sweep-to-right {
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    background: @c_blue_a;
+    transition-property: color;
+    transition-duration: 0.3s;
+
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 4px;
+        background: @c_blue_b;
+        transform: scaleX(0);
+        transform-origin: 50%;
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+    }
+
+    &:hover:before {
+        transform: scaleX(1);
+    }
+}
