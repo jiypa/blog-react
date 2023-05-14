@@ -15,6 +15,7 @@ import SearchBar from '../SearchBar';
 import LoginDialog, { LoginDialogRef } from '../LoginDialog';
 import useRequest from '../../hooks/useRequest';
 import useToken from '../../hooks/useToken';
+import useToast from '../../hooks/useToast';
 import usePalette from '../../hooks/usePalette';
 import styles from './index.module.less';
 
@@ -43,6 +44,7 @@ export default function NavBar(props: Props) {
 	const { request } = useRequest();
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [token, setToken] = useToken();
+	const { toast } = useToast();
 	const { palette } = usePalette();
 
 	useEffect(() => {
@@ -113,7 +115,13 @@ export default function NavBar(props: Props) {
 						token && !pageData?.isExpired ? <Button
 							className={props.pathname !== '/user' ? (isNotActive ? styles.button : styles.buttonActiveBySystem) : styles.buttonActiveByUser}
 							variant={'text'}
-							onClick={() => navigate(`/user/${pageData?.username}/desktop`)}
+							onClick={() => {
+								if (pageData?.username === 'admin') {
+									navigate(`/user/${pageData?.username}/desktop`);
+								} else {
+									toast('当前该功能仅向管理员开放，请联系站长获取管理员权限');
+								}
+							}}
 						>
 							{'我的'}
 						</Button> : <Button
