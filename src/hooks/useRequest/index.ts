@@ -2,9 +2,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import useLoading from '../useLoading';
 
+export interface Response {
+	code: number;
+	msg: string;
+	data: any;
+}
+
 const baseURL = 'https://blog.yeebay.top:7001/api/v1';
 const timeout = 10000;
-const token = localStorage.getItem('token');
 
 // 请求响应拦截器
 export default function useRequest() {
@@ -16,9 +21,6 @@ export default function useRequest() {
 	// 请求拦截
 	axiosInstance.interceptors.request.use((config) => {
 		setLoading(true);
-		if (token) {
-			config.headers.common['Authorization'] = token;
-		}
 
 		return config;
 	}, (error) => {
@@ -29,10 +31,15 @@ export default function useRequest() {
 	});
 
 	// 响应拦截
-	axiosInstance.interceptors.response.use((response) => {
+	axiosInstance.interceptors.response.use(({ data }) => {
 		setLoading(false);
 
-		return response;
+		const { code, msg } = data;
+		if (code) {
+			throw msg;
+		}
+
+		return data;
 	}, (error) => {
 		console.log(`Axios Response Error: ${error}`);
 		setLoading(false);
