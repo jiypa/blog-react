@@ -4,61 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="Change">
-      <change afterPath="$PROJECT_DIR$/src/Color.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/styles/global.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ArticleCard/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ArticleCard/index.tsx" afterDir="false" />
+    <list default="true" id="282541de-19db-4dbe-8c43-0ef7b78db200" name="更改" comment="Change 封装 token 设置器 hook">
       <change afterPath="$PROJECT_DIR$/src/components/ArticleEditor/index.module.less" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/ArticleEditor/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ArticleMeta/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ArticleMeta/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/BackTop/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FootBar/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FootBar/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LoadingBackdrop/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LoginDialog/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LoginDialog/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MetaIcon/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NavBar/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NavBar/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchBar/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchBar/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Separator/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TipMenu/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ToolCard/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ToolCard/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useEnqueueSnackbar/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useLoading/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useQueryParams/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useRequest/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useScrollTop/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useUrl/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducers/loading/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/AboutView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/AboutView/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/ArchiveView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/ArchiveView/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/ArticleView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/ArticleView/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/HomeView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/HomeView/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/NotFoundView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/NotFoundView/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/SearchView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/SearchView/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/ToolView/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserCreateView/index.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/UserView/UserCreateView/index.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/views/UserView/UserDesktopView/index.module.less" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/views/UserView/UserDesktopView/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +28,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
@@ -99,7 +51,7 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/yeebay/Desktop/blog-react&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yeebay/Desktop/blog-react/src/components/ArticleInfoDialog&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
@@ -114,12 +66,16 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/ArticleInfoDialog" />
+      <recent name="$PROJECT_DIR$/src/views/UserView/UserEditView" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/reducers/loading" />
-      <recent name="$PROJECT_DIR$/src/views/UserView/UserCreateView" />
-      <recent name="$PROJECT_DIR$/src/hooks/useUrl" />
-      <recent name="$PROJECT_DIR$/src/hooks/useRequest" />
-      <recent name="$PROJECT_DIR$/src/hooks/useQueryParams" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/components/ArticleCard" />
+      <recent name="$PROJECT_DIR$/src/components/ArticleEditor" />
+      <recent name="$PROJECT_DIR$/src/components/ArticleMeta" />
+      <recent name="$PROJECT_DIR$/src/components/BackTop" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -171,83 +127,371 @@
       <workItem from="1682068260206" duration="50212000" />
       <workItem from="1682326421105" duration="1286000" />
       <workItem from="1682327758579" duration="22387000" />
-      <workItem from="1682430804473" duration="13853000" />
+      <workItem from="1682430804473" duration="111334000" />
+      <workItem from="1683394662041" duration="12410000" />
+      <workItem from="1683471447845" duration="28944000" />
+      <workItem from="1683641236655" duration="37804000" />
+      <workItem from="1683839938607" duration="30248000" />
     </task>
-    <task id="LOCAL-00001" summary="Change 项目初始化">
-      <created>1681454617946</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00022" summary="Change 将 loadingReducer 文件夹重新改为 loading 文件夹">
+      <created>1682659571471</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1681454617946</updated>
+      <updated>1682659571471</updated>
     </task>
-    <task id="LOCAL-00002" summary="Change 代码格式化">
-      <created>1681455867587</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00023" summary="Change 加载中状态控制器 hook">
+      <created>1682660262320</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1681455867587</updated>
+      <updated>1682660262320</updated>
     </task>
-    <task id="LOCAL-00003" summary="Change 更新项目依赖">
-      <created>1681823358494</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00024" summary="Change 封装加载蒙层组件">
+      <created>1682660448298</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1681823358494</updated>
+      <updated>1682660448298</updated>
     </task>
-    <task id="LOCAL-00004" summary="Change store 初始化">
-      <created>1681824919922</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00025" summary="Change 删除 App.css 文件">
+      <created>1682673879880</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1681824919922</updated>
+      <updated>1682673879880</updated>
     </task>
-    <task id="LOCAL-00005" summary="Change 更新项目依赖">
-      <created>1681833676642</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00026" summary="Change 封装右上角 toast 提示弹窗 hook">
+      <created>1682675394537</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1681833676642</updated>
+      <updated>1682675394537</updated>
     </task>
-    <task id="LOCAL-00006" summary="Change 更新项目依赖">
-      <created>1682148253382</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00027" summary="Change 封装请求响应拦截器 hook">
+      <created>1682692560742</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1682148253382</updated>
+      <updated>1682692560742</updated>
     </task>
-    <task id="LOCAL-00007" summary="Change 更新项目依赖">
-      <created>1682159518878</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00028" summary="Change 封装全局路由">
+      <created>1682693232736</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1682159518878</updated>
+      <updated>1682693232736</updated>
     </task>
-    <task id="LOCAL-00008" summary="Change 更新项目依赖">
-      <created>1682504078347</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00029" summary="Change 封装根组件">
+      <created>1682693469002</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1682504078348</updated>
+      <updated>1682693469002</updated>
     </task>
-    <task id="LOCAL-00009" summary="Change 添加图片资源">
-      <created>1682517250863</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00030" summary="Change 删除 index.css 文件">
+      <created>1682693682932</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1682517250863</updated>
+      <updated>1682693682932</updated>
     </task>
-    <task id="LOCAL-00010" summary="Change 更新 .idea 文件夹">
-      <created>1682518172866</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00031" summary="Change 更新全局样式">
+      <created>1682693799600</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1682518172866</updated>
+      <updated>1682693799600</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00032" summary="Change 更新 ESLint 配置">
+      <created>1682791699357</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1682791699357</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Change 重载 axios 类型声明文件">
+      <created>1683397668082</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683397668082</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Change 为 store 添加 tokenReducer">
+      <created>1683399566657</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1683399566657</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Change 封装 token reducer">
+      <created>1683468897559</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683468897559</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Change 封装 token 设置器 hook">
+      <created>1683475164628</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1683475164628</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Change 更新全局样式">
+      <created>1683736450932</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1683736450932</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Change 更新全局样式">
+      <created>1683736518500</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1683736518500</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Change 为 useScrollTop 添加 behavior 参数">
+      <created>1683903368328</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1683903368328</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Change 添加前端路由拦截器">
+      <created>1683918296633</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1683918296633</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Change 更新公共样式库">
+      <created>1683927541633</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1683927541633</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Change 更新调色板 hook">
+      <created>1683927623705</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1683927623705</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Change 添加新路由">
+      <created>1683996507385</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1683996507385</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Change 更新请求响应拦截器 hook">
+      <created>1684056711777</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1684056711777</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Change 封装文章卡片组件">
+      <created>1684056863317</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1684056863317</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Change 封装文章元数据组件">
+      <created>1684057259533</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1684057259533</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Change 封装文章元数据弹窗组件">
+      <created>1684057373576</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1684057373576</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Change 封装回到顶部组件">
+      <created>1684057792900</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1684057792901</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Change 封装空状态组件">
+      <created>1684057852106</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1684057852107</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Change 封装全局底部栏组件">
+      <created>1684058060065</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058060068</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Change 调整注释位置">
+      <created>1684058132718</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058132718</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Change 更新文章元数据弹窗组件">
+      <created>1684058178679</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058178680</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Change 封装登录/注册弹窗组件">
+      <created>1684058277859</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058277859</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Change 封装文章元数据项组件">
+      <created>1684058347032</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058347032</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Change 封装全局顶部导航栏组件">
+      <created>1684058545222</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058545222</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Change 封装搜索栏组件">
+      <created>1684058605228</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058605228</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Change 封装分割线组件">
+      <created>1684058677838</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058677838</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Change 封装提示菜单组件">
+      <created>1684058818899</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058818899</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Change 封装工具卡片组件">
+      <created>1684058905046</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1684058905046</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Change 封装用户后台底部栏组件">
+      <created>1684059007402</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059007403</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Change 封装用户后台顶部导航栏组件">
+      <created>1684059078855</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059078855</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Change 添加「关于」页面">
+      <created>1684059471634</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059471634</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Change 添加「归档」页面">
+      <created>1684059522297</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059522297</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Change 添加「文章详情」页面">
+      <created>1684059574162</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059574162</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Change 添加「首页」页面">
+      <created>1684059627182</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059627182</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Change 添加「404」页面">
+      <created>1684059657674</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059657674</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Change 添加「搜索结果」页面">
+      <created>1684059703963</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059703963</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Change 添加「工具」页面">
+      <created>1684059733564</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059733564</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Change 添加用户「创作中心」页面">
+      <created>1684059782838</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059782838</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Change 添加用户「文章编辑」页面">
+      <created>1684059818568</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1684059818568</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -262,12 +506,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Change 项目初始化" />
-    <MESSAGE value="Change 代码格式化" />
-    <MESSAGE value="Change 状态初始化" />
-    <MESSAGE value="Change 更新项目依赖" />
-    <MESSAGE value="Change 添加图片资源" />
-    <MESSAGE value="Change 更新 .idea 文件夹" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change 更新 .idea 文件夹" />
+    <MESSAGE value="Change 封装文章元数据组件" />
+    <MESSAGE value="Change 封装文章元数据弹窗组件" />
+    <MESSAGE value="Change 封装回到顶部组件" />
+    <MESSAGE value="Change 封装空状态组件" />
+    <MESSAGE value="Change 封装全局底部栏组件" />
+    <MESSAGE value="Change 调整注释位置" />
+    <MESSAGE value="Change 更新文章元数据弹窗组件" />
+    <MESSAGE value="Change 封装登录/注册弹窗组件" />
+    <MESSAGE value="Change 封装文章元数据项组件" />
+    <MESSAGE value="Change 封装全局顶部导航栏组件" />
+    <MESSAGE value="Change 封装搜索栏组件" />
+    <MESSAGE value="Change 封装分割线组件" />
+    <MESSAGE value="Change 封装提示菜单组件" />
+    <MESSAGE value="Change 封装工具卡片组件" />
+    <MESSAGE value="Change 封装用户后台底部栏组件" />
+    <MESSAGE value="Change 封装用户后台顶部导航栏组件" />
+    <MESSAGE value="Change 添加「关于」页面" />
+    <MESSAGE value="Change 添加「归档」页面" />
+    <MESSAGE value="Change 添加「文章详情」页面" />
+    <MESSAGE value="Change 添加「首页」页面" />
+    <MESSAGE value="Change 添加「404」页面" />
+    <MESSAGE value="Change 添加「搜索结果」页面" />
+    <MESSAGE value="Change 添加「工具」页面" />
+    <MESSAGE value="Change 添加用户「创作中心」页面" />
+    <MESSAGE value="Change 添加用户「文章编辑」页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 添加用户「文章编辑」页面" />
   </component>
 </project>
