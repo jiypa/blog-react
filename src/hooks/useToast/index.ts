@@ -19,7 +19,7 @@ export default function useToast() {
 			style,
 			variant,
 			anchorOrigin: {
-				vertical: 'top',
+				vertical: 'bottom',
 				horizontal: 'right',
 			},
 		});
