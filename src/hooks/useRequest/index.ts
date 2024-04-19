@@ -8,7 +8,7 @@ export interface Response {
 	data: any;
 }
 
-const baseURL = 'https://blog.yeebay.top:7001/api/v1';
+const baseURL = 'https://api.yeebay.top:7001/api/v1';
 const timeout = 10000;
 
 // 请求响应拦截器
