@@ -1,5 +1,5 @@
 // 文章编辑器组件
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import MDEditor from '@uiw/react-md-editor';
 import type { ContextStore } from '@uiw/react-md-editor/src/Context';
 import rehypeSanitize from 'rehype-sanitize';
@@ -9,6 +9,7 @@ import 'katex/dist/katex.css';
 
 interface Props {
 	readOnly?: boolean;
+	height?: CSSProperties['height'];
 	value?: string;
 	onChange?: (value?: string, event?: React.ChangeEvent<HTMLTextAreaElement>, state?: ContextStore) => void;
 }
@@ -36,7 +37,7 @@ const Code: React.FC<any> = ({ children, className, node }) => {
 };
 
 export default function ArticleEditor(props: Props) {
-	const { value, onChange, readOnly = false } = props;
+	const { readOnly = false, height, value, onChange } = props;
 
 	return readOnly ? <MDEditor.Markdown
 		source={value}
@@ -44,7 +45,7 @@ export default function ArticleEditor(props: Props) {
 			code: Code,
 		}}
 	/> : <MDEditor
-		height={'calc(100vh - 7.06rem)'}
+		height={height}
 		value={value}
 		onChange={onChange}
 		previewOptions={{
