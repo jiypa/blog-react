@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Box } from '@mui/material';
 import { SnackbarProvider } from 'notistack';
 import useScrollTop from './hooks/useScrollTop';
 import HomeView from './views/HomeView';
@@ -25,12 +24,10 @@ export default function App() {
 	return (
 		<>
 			<SnackbarProvider maxSnack={3} autoHideDuration={2000}>
-				<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-					{!isNotFoundPath && !isUserPath ? <NavBar pathname={pathname}/> : null}
-					{isRootPath ? <HomeView/> : <Outlet/>}
-					{!isNotFoundPath && !isUserPath ? <FootBar/> : null}
-					<BackTop/>
-				</Box>
+				{!isNotFoundPath && !isUserPath ? <NavBar pathname={pathname}/> : null}
+				{isRootPath ? <HomeView/> : <Outlet/>}
+				{!isNotFoundPath && !isUserPath ? <FootBar/> : null}
+				<BackTop/>
 			</SnackbarProvider>
 			<LoadingBackdrop/>
 		</>
