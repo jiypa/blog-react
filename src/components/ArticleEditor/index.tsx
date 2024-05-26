@@ -1,79 +1,57 @@
 // 文章编辑器组件
-import React, {
-	useState,
-	useEffect,
-	forwardRef,
-	useImperativeHandle,
-} from 'react';
-import { useUnmount, useScroll } from 'ahooks';
-import { Editor, Toolbar } from '@wangeditor/editor-for-react';
-import { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor';
-import BackTop from '../BackTop';
-import '@wangeditor/editor/dist/css/style.css';
-import styles from './index.module.less';
+import React from 'react';
+import MDEditor from '@uiw/react-md-editor';
+import type { ContextStore } from '@uiw/react-md-editor/src/Context';
+import rehypeSanitize from 'rehype-sanitize';
+import { getCodeString } from 'rehype-rewrite';
+import katex from 'katex';
+import 'katex/dist/katex.css';
 
-export interface ArticleEditorRef {
-	content: () => string;
-}
 interface Props {
 	readOnly?: boolean;
-	autoFocus?: boolean;
-	editorWidth?: string;
-	content?: string;
+	value?: string;
+	onChange?: (value?: string, event?: React.ChangeEvent<HTMLTextAreaElement>, state?: ContextStore) => void;
 }
 
-export default forwardRef(function ArticleEditor(props: Props, ref) {
-	const {
-		readOnly = false,
-		autoFocus = true,
-		editorWidth = '',
-		content = '',
-	} = props;
-	const toolbarConfig: Partial<IToolbarConfig> = {
-		excludeKeys: ['fullScreen'],
-	};
-	const editorConfig: Partial<IEditorConfig> = {
-		readOnly,
-		autoFocus,
-		placeholder: !readOnly ? '请输入文章内容' : '',
-	};
-	const [editor, setEditor] = useState<IDomEditor | null>(null);
-	const [html, setHtml] = useState<string>(content);
-	const position = useScroll(document);
+// 解析 KaTeX
+const Code: React.FC<any> = ({ children, className, node }) => {
+	if (typeof children === 'string' && /^\$(.*)\$/.test(children)) {
+		const html = katex.renderToString(children.replace(/^\$(.*)\$/, '$1'), {
+			throwOnError: false,
+		});
+		return <code dangerouslySetInnerHTML={{ __html: html }} style={{ background: 'transparent' }} />;
+	}
+	const code = node?.children ? getCodeString(node?.children) : children;
+	if (
+		typeof code === 'string' &&
+		typeof className === 'string' &&
+		/^language-katex/.test(className.toLocaleLowerCase())
+	) {
+		const html = katex.renderToString(code, {
+			throwOnError: false,
+		});
+		return <code style={{ fontSize: '150%' }} dangerouslySetInnerHTML={{ __html: html }} />;
+	}
+	return <code className={String(className)}>{children}</code>;
+};
 
-	useImperativeHandle(ref, () => ({
-		content() {
-			return html;
-		},
-	}), [html]);
-	useEffect(() => {
-		setHtml(content);
-	}, [content]);
-	// 销毁 editor 实例
-	useUnmount(() => {
-		editor?.destroy();
-		setEditor(null);
-	});
+export default function ArticleEditor(props: Props) {
+	const { value, onChange, readOnly = false } = props;
 
-	return (
-		<>
-			{
-				!readOnly ? <Toolbar
-					className={position?.top === 0 ? styles.toolBar : styles.toolBarActive}
-					editor={editor}
-					defaultConfig={toolbarConfig}
-				/> : null
-			}
-			<Editor
-				className={readOnly ? styles.readOnlyEditor : styles.editor}
-				style={editorWidth ? { width: `calc(${editorWidth} - 50px * 2)` } : {}}
-				mode={'simple'}
-				defaultConfig={editorConfig}
-				value={html}
-				onCreated={(editor) => setEditor(editor)}
-				onChange={(editor) => setHtml(editor.getHtml())}
-			/>
-			<BackTop/>
-		</>
-	);
-});
+	return readOnly ? <MDEditor.Markdown
+		source={value}
+		components={{
+			code: Code,
+		}}
+	/> : <MDEditor
+		height={'calc(100vh - 7.06rem)'}
+		value={value}
+		onChange={onChange}
+		previewOptions={{
+			rehypePlugins: [[rehypeSanitize]],
+			components: {
+				code: Code,
+			},
+		}}
+	/>;
+}
