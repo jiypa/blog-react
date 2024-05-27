@@ -1,50 +1,67 @@
 @import '../../assets/styles/style';
 
 .bg {
-    width: 100vw;
     height: 100vh;
     background-image: url('../../assets/images/img_error.png');
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.bgModal {
-    width: 100vw;
+.modalContainer {
+    width: 100%;
     height: 100vh;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .5);
+
+    .flexCenter();
 }
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-    h1, p {
-        color: @c_main_white;
+    gap: 2rem;
+    color: var(--white-main-color);
+}
+// 移动端字体大小为 PC 端字体大小的 0.75 倍
+.descText {
+    &:nth-child(1) {
+        font-size: 6rem;
+        font-weight: bold;
     }
-
-    h1 {
-        font-size: 100px;
+    &:nth-child(2) {
+        font-size: 1.5rem;
     }
-
-    p {
-        font-size: 30px;
+    &:nth-child(3) {
+        font-size: 1.125rem;
     }
 }
 .button {
-    padding: 10px;
-    border: 1px solid @c_main_white;
-    border-radius: 8px;
-
-    p {
-        font-size: 16px;
-    }
+    padding: .5rem;
+    font-size: .75rem;
+    border-radius: .5rem;
+    border: 1px solid var(--white-main-color);
 
     &:hover {
         cursor: pointer;
+    }
+}
+@media (min-width: @screen-md-min) {
+    .descText {
+        &:nth-child(1) {
+            font-size: 8rem;
+        }
+        &:nth-child(2) {
+            font-size: 2rem;
+        }
+        &:nth-child(3) {
+            font-size: 1.5rem;
+        }
+    }
+    .button {
+        font-size: 1rem;
     }
 }

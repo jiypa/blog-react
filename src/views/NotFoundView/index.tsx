@@ -2,25 +2,21 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTitle } from 'ahooks';
 import { Box } from '@mui/material';
-import { toRgb } from '@jiaminghi/color';
 import styles from './index.module.less';
 
 export default function NotFoundView() {
 	const navigate = useNavigate();
 
-	useTitle('404错误');
+	useTitle('页面没有找到');
 
 	return (
 		<Box className={styles.bg}>
-			<Box className={styles.bgModal}/>
-			<Box className={styles.container}>
-				<h1>Oops!</h1>
-				<p style={{ marginTop: 50, marginBottom: 50 }}>{'您的小可爱正在赶来的路上，稍等一下再试试看呢~'}</p>
-				<p style={{ marginBottom: '30px', color: toRgb('#ffffff', 0.5) }}>
-					<em>{'Not Found'}</em>
-				</p>
-				<Box className={styles.button} onClick={() => navigate('/')}>
-					<p>{'回到首页'}</p>
+			<Box className={styles.modalContainer}>
+				<Box className={styles.content}>
+					<span className={styles.descText}>{'Oops!'}</span>
+					<span className={styles.descText}>{'啊哦，您的小可爱好像走丢了~'}</span>
+					<span className={styles.descText}>{'Not Found'}</span>
+					<Box className={styles.button} onClick={() => navigate('/')}>{'回到首页'}</Box>
 				</Box>
 			</Box>
 		</Box>
