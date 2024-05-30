@@ -6,7 +6,6 @@ import HomeView from './views/HomeView';
 import NavBar from './components/NavBar';
 import FootBar from './components/FootBar';
 import BackTop from './components/BackTop';
-import LoadingBackdrop from './components/LoadingBackdrop';
 
 // 根组件
 export default function App() {
@@ -29,7 +28,6 @@ export default function App() {
 				{!isNotFoundPath && !isUserPath ? <FootBar/> : null}
 				<BackTop/>
 			</SnackbarProvider>
-			<LoadingBackdrop/>
 		</>
 	);
 }
