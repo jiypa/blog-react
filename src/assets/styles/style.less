@@ -1,6 +1,28 @@
 // 公共样式库
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+@screen-xl-min: 1400px;
+@padding-xl-min: 2rem 24vw;
+@padding-md-min-xl-max: 2rem 16vw;
+
 .flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.transformCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.baseContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.basePaddingContainer {
+    padding: 1rem;
+    .baseContainer();
 }
