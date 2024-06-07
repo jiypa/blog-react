@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTitle, useMount } from 'ahooks';
-import { Box, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import {
 	Timeline,
 	TimelineItem,
@@ -12,8 +12,8 @@ import {
 } from '@mui/lab';
 import dayjs from 'dayjs';
 import useRequest from '../../hooks/useRequest';
-import usePalette from '../../hooks/usePalette';
 import Separator from '../../components/Separator';
+import styles from './index.module.less';
 
 interface PageData {
 	total: number;
@@ -28,14 +28,12 @@ export default function ArchiveView() {
 	const [pageData, setPageData] = useState<PageData | null>(null);
 	const navigate = useNavigate();
 	const { request } = useRequest();
-	const { palette } = usePalette();
 
 	useTitle('归档');
 	useMount(() => {
 		request.get('/archive')
 			.then(({ data }) => {
 				setPageData(data);
-				console.log(data);
 			})
 			.catch((err) => {
 				console.log('err', err);
@@ -43,38 +41,30 @@ export default function ArchiveView() {
 	});
 
 	return (
-		<Box sx={{ width: '50%', backgroundColor: palette.c_white }}>
-			<h4
-				style={{
-					paddingTop: 30,
-					paddingBottom: 30,
-					textAlign: 'center',
-					color: palette.c_font_black,
-				}}
-			>
-				{`🌼 当前发表文章总数为${pageData?.total ?? ''}篇 🌼`}
-			</h4>
-			<Separator/>
-			<Timeline position={'alternate'} style={{ paddingTop: 48 }}>
-				{
-					pageData?.articles?.map(({ pid, title, updatedTime }, index, array) => <TimelineItem key={pid}>
-						<TimelineSeparator>
-							<TimelineDot variant={'outlined'} color={'primary'}/>
-							{index !== array.length - 1 ? <TimelineConnector/> : null}
-						</TimelineSeparator>
-						<TimelineContent>
-							<Box
-								sx={{ '&:hover': { cursor: 'pointer', color: palette.c_main_blue } }}
-								onClick={() => navigate(`/article/p/${pid}`)}
-							>
-								<Tooltip arrow title={dayjs(updatedTime).format('YYYY-MM-DD HH:mm:ss')}>
-									<span>{`${title}`}</span>
-								</Tooltip>
-							</Box>
-						</TimelineContent>
-					</TimelineItem>)
-				}
-			</Timeline>
-		</Box>
+		<main className={styles.container}>
+			<section className={styles.subContainer}>
+				<span className={styles.totalCount}>{`🎉 当前发表文章总数为${pageData?.total ?? ''}篇 🎉`}</span>
+				<Separator/>
+				<Timeline position={'alternate'} style={{ padding: '1rem 0' }}>
+					{
+						pageData?.articles?.map(({ pid, title, updatedTime }, index, array) => (
+							<TimelineItem key={pid}>
+								<TimelineSeparator>
+									<TimelineDot variant={'outlined'} color={'primary'}/>
+									{index !== array.length - 1 ? <TimelineConnector/> : null}
+								</TimelineSeparator>
+								<TimelineContent>
+									<div className={styles.title} onClick={() => navigate(`/article/p/${pid}`)}>
+										<Tooltip arrow title={dayjs(updatedTime).format('YYYY-MM-DD HH:mm:ss')}>
+											<span>{title}</span>
+										</Tooltip>
+									</div>
+								</TimelineContent>
+							</TimelineItem>
+						))
+					}
+				</Timeline>
+			</section>
+		</main>
 	);
 }

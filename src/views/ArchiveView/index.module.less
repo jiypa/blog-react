@@ -1,0 +1,40 @@
+@import '../../assets/styles/style';
+
+.container {
+    padding: 1rem;
+}
+.subContainer {
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    box-shadow: var(--card-box-shadow);
+
+    &:hover {
+        box-shadow: var(--card-hover-box-shadow);
+    }
+}
+.totalCount {
+    display: block;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--font-main-color);
+}
+.title {
+    font-family: var(--global-font-family);
+
+    &:hover {
+        cursor: pointer;
+        color: var(--blue-main-color);
+    }
+}
+@media (min-width: @screen-xl-min) {
+    .container {
+        padding: @padding-xl-min;
+    }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-xl-min) {
+    .container {
+        padding: @padding-md-min-xl-max;
+    }
+}
