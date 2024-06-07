@@ -4,7 +4,7 @@ import { SnackbarProvider } from 'notistack';
 import useScrollTop from './hooks/useScrollTop';
 import HomeView from './views/HomeView';
 import NavBar from './components/NavBar';
-import FootBar from './components/FootBar';
+import Footer from './components/Footer';
 import BackTop from './components/BackTop';
 
 // 根组件
@@ -25,7 +25,7 @@ export default function App() {
 			<SnackbarProvider maxSnack={3} autoHideDuration={2000}>
 				{!isNotFoundPath && !isUserPath ? <NavBar pathname={pathname}/> : null}
 				{isRootPath ? <HomeView/> : <Outlet/>}
-				{!isNotFoundPath && !isUserPath ? <FootBar/> : null}
+				{!isNotFoundPath && !isUserPath ? <Footer/> : null}
 				<BackTop/>
 			</SnackbarProvider>
 		</>
