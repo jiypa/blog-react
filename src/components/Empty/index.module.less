@@ -1,14 +1,14 @@
 @import '../../assets/styles/style';
 
-.container {
-    width: 100%;
-    height: 100vh;
-    background-color: @c_white;
+@footer-height: 6rem;
 
+.container {
     .flexCenter();
     flex-direction: column;
-
-    p {
-        color: @c_font_black;
+    height: calc(60vh - 2rem - @footer-height);
+}
+@media (min-width: @screen-md-min) {
+    .container {
+        height: calc(60vh - 4rem - @footer-height);
     }
 }
