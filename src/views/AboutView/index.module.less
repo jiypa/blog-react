@@ -1,28 +1,35 @@
 @import '../../assets/styles/style';
 
 .container {
-    width: 100%;
-    margin-top: 30px;
-    padding: 20px 0;
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-    background-color: @c_white;
+    .basePaddingContainer();
+}
+.subContainer {
+    padding: 1rem 0;
+    border-radius: .5rem;
+    transition: all .3s;
+    box-shadow: var(--card-box-shadow);
+
+    &:hover {
+        box-shadow: var(--card-hover-box-shadow);
+    }
 
     ul {
-        padding: 0 30px;
+        padding: 0 1rem 0 2rem;
 
         li {
+            margin: 1rem 0;
             list-style: circle;
-            margin: 10px 0;
-            color: @c_font_black;
+            color: var(--font-main-color);
         }
     }
-
-    a {
-        color: @c_main_blue;
+}
+@media (min-width: @screen-xl-min) {
+    .container {
+        padding: @padding-xl-min;
     }
-
-    &:last-child {
-        margin-bottom: 30px;
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-xl-min) {
+    .container {
+        padding: @padding-md-min-xl-max;
     }
 }
