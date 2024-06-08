@@ -39,13 +39,13 @@ export default function ArticleEditor(props: Props) {
 	const { readOnly = false, value, onChange } = props;
 
 	return readOnly ? <MDEditor.Markdown
-		source={value}
+		source={value ?? ''}
 		components={{
 			code: Code,
 		}}
 	/> : <MDEditor
 		height={'calc(100vh - 7.06rem)'}
-		value={value}
+		value={value ?? ''}
 		onChange={onChange}
 		previewOptions={{
 			rehypePlugins: [[rehypeSanitize]],
