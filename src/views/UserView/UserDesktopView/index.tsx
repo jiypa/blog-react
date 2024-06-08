@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-	Box,
 	Button,
 	Dialog,
 	DialogTitle,
@@ -16,7 +15,6 @@ import { useTitle, useMount } from 'ahooks';
 import useRequest from '../../../hooks/useRequest';
 import useToken from '../../../hooks/useToken';
 import useToast from '../../../hooks/useToast';
-import usePalette from '../../../hooks/usePalette';
 import styles from './index.module.less';
 
 interface Article {
@@ -43,7 +41,14 @@ export default function UserDesktopView() {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [token, setToken] = useToken();
 	const { toast } = useToast();
-	const { palette } = usePalette();
+
+	const theme = createTheme({
+		palette: {
+			background: {
+				default: '#f0f0f0',
+			},
+		},
+	});
 	const columns = useMemo<MRT_ColumnDef<Article>[]>(
 		() => [
 			{
@@ -75,9 +80,8 @@ export default function UserDesktopView() {
 				header: '操作',
 				// eslint-disable-next-line react/prop-types
 				Cell: ({ row: { original: { pid, title } } }) => (
-					<>
+					<div style={{ display: 'flex', justifyContent: 'center', gap: '.5rem' }}>
 						<Button
-							style={{ marginRight: 10 }}
 							size={'small'}
 							variant={'outlined'}
 							onClick={() => navigate(`/user/${username}/edit/p/${pid}`)}
@@ -95,7 +99,7 @@ export default function UserDesktopView() {
 						>
 							{'删除'}
 						</Button>
-					</>
+					</div>
 				),
 			}
 		], [pageData]);
@@ -117,9 +121,9 @@ export default function UserDesktopView() {
 
 	return (
 		<>
-			<Box className={styles.navBar}>
-				<h4 style={{ width: 200, textAlign: 'center', color: palette.c_font_black }}>{'博客后台系统'}</h4>
-			</Box>
+			<header className={styles.header}>
+				<span>{'博客后台系统'}</span>
+			</header>
 			<nav className={styles.sideBar}>
 				<span className={styles.sideBarButton} onClick={() => navigate(`/user/${username}/desktop`)}>{'我的桌面'}</span>
 				<span className={styles.sideBarButton} onClick={() => navigate(`/user/${username}/create`)}>{'创作中心'}</span>
@@ -132,15 +136,9 @@ export default function UserDesktopView() {
 					{'退出登录'}
 				</span>
 			</nav>
-			<Box className={styles.content}>
-				<Box style={{ padding: 20, color: palette.c_font_black }}>{'我的桌面'}</Box>
-				<ThemeProvider theme={() => createTheme({
-					palette: {
-						background: {
-							default: palette.c_main_white,
-						},
-					},
-				})}>
+			<main className={styles.container}>
+				<span style={{ display: 'block', padding: '1.25rem' }}>{'我的桌面'}</span>
+				<ThemeProvider theme={theme}>
 					<MaterialReactTable
 						enableRowNumbers
 						columns={columns}
@@ -163,23 +161,23 @@ export default function UserDesktopView() {
 						muiTablePaperProps={{
 							elevation: 0,
 							sx: {
-								borderRadius: '0',
-								border: `1px solid ${palette.c_main_gray}`,
-								backgroundColor: palette.c_main_white,
+								borderRadius: 0,
+								border: '1px solid var(--gray-a-color)',
+								backgroundColor: 'var(--gray-main-color)',
 							},
 						}}
 					/>
 				</ThemeProvider>
-			</Box>
+			</main>
 			<Dialog
 				open={open}
 				onClose={() => setOpen(false)}
 			>
-				<DialogTitle sx={{ fontSize: 16 }}>
+				<DialogTitle style={{ fontSize: '1rem' }}>
 					{`确定删除文章《${deleteTitle}》吗？`}
 				</DialogTitle>
 				<DialogContent>
-					<DialogContentText sx={{ fontSize: 14 }}>
+					<DialogContentText style={{ fontSize: '.875rem' }}>
 						{'文章删除后暂不支持找回，请谨慎删除哦～'}
 					</DialogContentText>
 				</DialogContent>
