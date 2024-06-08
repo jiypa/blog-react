@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="zh-Hans" data-color-mode="light">
     <head>
         <meta charset="UTF-8"/>
         <link rel="icon" type="image/svg+xml" href="/logo.png"/>
@@ -7,26 +7,30 @@
         <title>寄依的博客</title>
         <style>
             :root {
-                --white-main-color: rgba(220, 223, 230, 1);
-                --blue-main-color: rgba(25, 118, 210, 1);
-                --blue-a-color: rgba(240, 248, 255, 1);
-                --blue-b-color: rgba(204, 231, 255, 1);
-                --gray-main-color: rgba(226, 226, 226, 1);
-                --font-main-color: rgba(50, 50, 50, 1);
-                --font-a-color: rgba(187,187, 187, 1);
+                --global-font-family: '行楷-简', Courier, monospace;
 
-                --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
-                --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.09);
+                --white-main-color: #dcdfe6;
+                --blue-main-color: #29d;
+                --blue-a-color: #f0f8ff;
+                --blue-b-color: #cce7ff;
+                --gray-main-color: #f0f0f0;
+                --gray-a-color: #e2e2e2;
+                --dark-main-color: #222831;
+                --font-main-color: #323232;
+                --font-a-color: #bbb;
 
-                --w-e-toolbar-bg-color: var(--white-main-color);
-                --w-e-toolbar-active-bg-color: var(--gray-main-color);
+                --bg-modal-background-color: rgba(0, 0, 0, .3);
+                --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, .05);
+                --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, .09);
             }
             body {
-                font-family: '行楷-简', Courier, monospace;
+                color: var(--font-main-color);
+                font-family: var(--global-font-family);
             }
             * {
                 margin: 0;
                 padding: 0;
+                box-sizing: border-box;
             }
         </style>
     </head>
