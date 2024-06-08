@@ -2,9 +2,9 @@
 import React from 'react';
 import MDEditor from '@uiw/react-md-editor';
 import type { ContextStore } from '@uiw/react-md-editor/src/Context';
+import katex from 'katex';
 import rehypeSanitize from 'rehype-sanitize';
 import { getCodeString } from 'rehype-rewrite';
-import katex from 'katex';
 import 'katex/dist/katex.css';
 
 interface Props {
