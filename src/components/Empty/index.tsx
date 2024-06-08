@@ -18,7 +18,7 @@ export default function Empty(props: Props) {
 				height='5rem'
 				style={{ color: 'var(--gray-a-color)' }}
 			/>
-			{title ? <span>{title}</span> : null}
+			<span>{title ?? ''}</span>
 		</div>
 	);
 }
