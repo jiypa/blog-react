@@ -2,21 +2,21 @@
 import React, {
 	useState,
 	forwardRef,
+	ForwardedRef,
 	useImperativeHandle,
 } from 'react';
 import {
-	Box,
+	Modal,
 	Button,
-	Dialog,
-	IconButton,
+	Select,
 	TextField,
 	FormControl,
 	InputLabel,
-	Select,
 	MenuItem,
 	OutlinedInput,
 } from '@mui/material';
-import { Close } from '@mui/icons-material';
+import { Icon } from '@iconify/react';
+import useToast from '../../hooks/useToast';
 import Separator from '../Separator';
 import styles from './index.module.less';
 
@@ -36,12 +36,13 @@ interface Props {
 	setState: (state: State) => void;
 }
 
-const categories = ['前端', '后端', '算法', '网络', '安全', '大数据', '人工智能'];
+export const categories = ['前端', '后端', '算法', '网络', '安全', '大数据', '人工智能'];
 
-export default forwardRef(function ArticleMetaDialog(props: Props, ref) {
+export default forwardRef(function ArticleMetaDialog(props: Props, ref: ForwardedRef<ArticleMetaDialogRef>) {
 	const { state, setState } = props;
 	const { title, category, tags } = state;
 	const [open, setOpen] = useState<boolean>(false);
+	const { toast } = useToast();
 
 	useImperativeHandle(ref, () => ({
 		dismiss() {
@@ -53,55 +54,56 @@ export default forwardRef(function ArticleMetaDialog(props: Props, ref) {
 	}));
 
 	return (
-		<Dialog open={open} onClose={() => setOpen(false)}>
-			<Box className={styles.container}>
-				<IconButton
+		<Modal open={open} onClose={() => setOpen(false)}>
+			<section className={styles.container}>
+				<Icon
+					icon='ic:round-close'
+					width='1.2rem'
+					height='1.2rem'
 					style={{
 						position: 'absolute',
-						top: 0,
-						right: 0,
+						top: '.5rem',
+						right: '.5rem',
 					}}
 					onClick={() => setOpen(false)}
-				>
-					<Close/>
-				</IconButton>
-				<Box className={styles.title}>
-					{'基础信息'}
-				</Box>
+				/>
+				<header className={styles.title}>{'基础信息'}</header>
 				<Separator/>
-				<TextField
-					required
-					className={styles.textField}
-					label={'文章标题'}
-					value={title}
-					variant={'outlined'}
-					onChange={(event) => setState({ ...state, title: event.target.value })}
-				/>
-				<FormControl className={styles.textField}>
-					<InputLabel>{'文章分类'}</InputLabel>
-					<Select
-						value={category}
-						input={<OutlinedInput label={'文章分类'}/>}
-						onChange={(event) => setState({ ...state, category: event.target.value })}
+				<div className={styles.content}>
+					<TextField
+						required
+						label={'文章标题'}
+						value={title}
+						variant={'outlined'}
+						onChange={(event) => setState({ ...state, title: event.target.value })}
+					/>
+					<FormControl>
+						<InputLabel>{'文章分类'}</InputLabel>
+						<Select
+							value={category}
+							input={<OutlinedInput label={'文章分类'}/>}
+							onChange={(event) => setState({ ...state, category: event.target.value })}
+						>
+							{categories.map((category, index) => <MenuItem value={category} key={index}>{category}</MenuItem>)}
+						</Select>
+					</FormControl>
+					<TextField
+						label={'文章标签（以空格分隔）'}
+						value={tags}
+						variant={'outlined'}
+						onChange={(event) => setState({ ...state, tags: event.target.value })}
+					/>
+					<Button
+						variant={'contained'}
+						onClick={() => {
+							setOpen(false);
+							toast('保存成功', 'success');
+						}}
 					>
-						{categories.map((category, index) => <MenuItem value={category} key={index}>{category}</MenuItem>)}
-					</Select>
-				</FormControl>
-				<TextField
-					className={styles.textField}
-					label={'文章标签（以空格分隔）'}
-					value={tags}
-					variant={'outlined'}
-					onChange={(event) => setState({ ...state, tags: event.target.value })}
-				/>
-				<Button
-					style={{ width: 300, margin: '20px 0' }}
-					variant={'contained'}
-					onClick={() => setOpen(false)}
-				>
-					{'保存'}
-				</Button>
-			</Box>
-		</Dialog>
+						{'保存'}
+					</Button>
+				</div>
+			</section>
+		</Modal>
 	);
 });
