@@ -3,13 +3,12 @@
 import React from 'react';
 import {
 	Fade,
-	Box,
 	Fab,
 	useScrollTrigger,
 } from '@mui/material';
-import { KeyboardArrowUp } from '@mui/icons-material';
+import { Icon } from '@iconify/react';
 import useScrollTop from '../../hooks/useScrollTop';
-import usePalette from '../../hooks/usePalette';
+import styles from './index.module.less';
 
 export default function BackTop() {
 	const trigger = useScrollTrigger({
@@ -17,15 +16,19 @@ export default function BackTop() {
 		threshold: 100,
 	});
 	const { scrollTop } = useScrollTop();
-	const { palette } = usePalette();
 
 	return (
 		<Fade in={trigger}>
-			<Box sx={{ position: 'fixed', zIndex: 999 , bottom: 30, right: 30 }} onClick={() => scrollTop('smooth')}>
-				<Fab sx={{ backgroundColor: palette.c_white, '&:hover': { backgroundColor: palette.c_main_blue, color: palette.c_white } }} size={'small'}>
-					<KeyboardArrowUp/>
+			<div className={styles.container} onClick={() => scrollTop('smooth')}>
+				<Fab className={styles.fab} size={'small'}>
+					<Icon
+						icon='ic:round-arrow-upward'
+						className={styles.icon}
+						width='1.25rem'
+						height='1.25rem'
+					/>
 				</Fab>
-			</Box>
+			</div>
 		</Fade>
 	);
 }
