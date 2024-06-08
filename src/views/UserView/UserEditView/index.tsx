@@ -79,7 +79,7 @@ export default function UserEditView() {
 			},
 		})
 			.then(({ msg }) => {
-				toast(msg);
+				toast(msg, 'success');
 			})
 			.catch((err) => {
 				toast(err);

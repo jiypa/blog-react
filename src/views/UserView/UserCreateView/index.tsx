@@ -58,7 +58,7 @@ export default function UserCreateView() {
 			},
 		})
 			.then(({ msg }) => {
-				toast(msg);
+				toast(msg, 'success');
 				navigate(`/user/${username}/desktop`);
 			})
 			.catch((err) => {
