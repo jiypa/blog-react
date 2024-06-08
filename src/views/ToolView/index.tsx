@@ -22,7 +22,7 @@ export default function ToolView() {
 	return (
 		<main className={styles.container}>
 			{
-				pageData?.map(({ type, toolList }, index) => <ToolCard type={type} toolList={toolList} key={index}/>)
+				pageData?.map?.(({ type, toolList }, index) => <ToolCard type={type ?? ''} toolList={toolList ?? []} key={index}/>)
 			}
 		</main>
 	);
