@@ -1,24 +1,32 @@
 @import '../../assets/styles/style';
 
 .container {
-    width: 400px;
-    background-color: @c_white;
-
-    .flexCenter();
-    flex-direction: column;
+    .transformCenter();
+    width: 20rem;
+    outline: none;
+    border-radius: .5rem;
+    background-color: white;
 }
 .title {
-    margin: 20px 0;
-    font-size: 20px;
-    color: @c_font_black;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
-.textField {
-    width: 300px;
-    margin-top: 8px !important;
+.content {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 .tipText {
-    width: 300px;
-    margin-bottom: 20px;
+    transition: all .3s;
+    text-align: center;
+    font-size: .75rem;
+    color: var(--font-a-color);
 
-    .flexCenter();
+    &:hover {
+        cursor: pointer;
+        color: var(--font-main-color);
+    }
 }

@@ -5,13 +5,11 @@ import React, {
 	useImperativeHandle,
 } from 'react';
 import {
-	Box,
+	Modal,
 	Button,
-	Dialog,
-	IconButton,
 	TextField,
 } from '@mui/material';
-import { Close } from '@mui/icons-material';
+import { Icon } from '@iconify/react';
 import useRequest, { Response } from '../../hooks/useRequest';
 import useToken from '../../hooks/useToken';
 import useToast from '../../hooks/useToast';
@@ -89,67 +87,71 @@ export default forwardRef(function LoginDialog(props, ref) {
 	}
 
 	return (
-		<Dialog open={open} onClose={() => dismiss()}>
-			<Box className={styles.container}>
-				<IconButton
+		<Modal open={open} onClose={() => dismiss()}>
+			<section className={styles.container}>
+				<Icon
+					icon='ic:round-close'
+					width='1.2rem'
+					height='1.2rem'
 					style={{
 						position: 'absolute',
-						top: 0,
-						right: 0,
+						top: '.5rem',
+						right: '.5rem',
 					}}
 					onClick={() => dismiss()}
-				>
-					<Close/>
-				</IconButton>
-				<Box className={styles.title}>
+				/>
+				<header className={styles.title}>
 					{isLogin ? '欢迎登录' : '欢迎注册'}
-				</Box>
+				</header>
 				<Separator/>
-				<TextField
-					required={!isLogin}
-					className={styles.textField}
-					label={'用户名'}
-					value={username}
-					helperText={'请输入您的用户名'}
-					variant={'standard'}
-					onChange={(event) => setUserName(event.target.value)}
-				/>
-				<TextField
-					required={!isLogin}
-					className={styles.textField}
-					label={'密码'}
-					type={'password'}
-					value={password}
-					helperText={'请输入您的密码'}
-					variant={'standard'}
-					onChange={(event) => setPassword(event.target.value)}
-				/>
-				{
-					!isLogin ? <TextField
-						className={styles.textField}
-						label={'邮箱'}
-						value={email}
-						helperText={'请输入您的邮箱'}
+				<div className={styles.content}>
+					<TextField
+						required={!isLogin}
+						label={'用户名'}
+						value={username}
+						helperText={'请输入您的用户名'}
 						variant={'standard'}
-						onChange={(event) => setEmail(event.target.value)}
-					/> : null
-				}
-				<Button
-					style={{ width: 300, margin: '20px 0' }}
-					variant={'contained'}
-					onClick={() => isLogin ? login() : register()}
-				>
-					{isLogin ? '登录' : '注册'}
-				</Button>
-				{
-					isLogin ? <Box className={styles.tipText}>
-						<Button variant={'text'} onClick={() => {
+						onChange={(event) => setUserName(event.target.value)}
+					/>
+					<TextField
+						required={!isLogin}
+						label={'密码'}
+						type={'password'}
+						value={password}
+						helperText={'请输入您的密码'}
+						variant={'standard'}
+						onChange={(event) => setPassword(event.target.value)}
+					/>
+					{
+						!isLogin ? <TextField
+							label={'邮箱'}
+							value={email}
+							helperText={'请输入您的邮箱'}
+							variant={'standard'}
+							onChange={(event) => setEmail(event.target.value)}
+						/> : null
+					}
+					<Button
+						variant={'contained'}
+						onClick={() => isLogin ? login() : register()}
+					>
+						{isLogin ? '登录' : '注册'}
+					</Button>
+					{
+						isLogin ? <span className={styles.tipText} onClick={() => {
 							setIsLogin(false);
 							clearTextField();
-						}}>{'还未注册？去注册 >'}</Button>
-					</Box> : null
-				}
-			</Box>
-		</Dialog>
+						}}>
+							{'还未注册？去注册 >'}
+						</span> : <span className={styles.tipText} onClick={() => {
+							setIsLogin(true);
+							clearTextField();
+						}}>
+							{'已有账号？去登录 >'}
+						</span>
+					}
+				</div>
+			</section>
+		</Modal>
 	);
 });
