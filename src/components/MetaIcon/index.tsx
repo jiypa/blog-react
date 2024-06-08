@@ -1,21 +1,22 @@
 // 文章元数据项组件
-import React from 'react';
-import { Stack } from '@mui/material';
-import usePalette from '../../hooks/usePalette';
+import React, { ReactElement } from 'react';
 
 interface Props {
-    icon: React.ReactElement;
+    icon: ReactElement;
     desc: string;
 }
 
 export default function MetaIcon(props: Props) {
 	const { icon, desc } = props;
-	const { palette } = usePalette();
 
 	return (
-		<Stack direction={'row'} alignItems={'center'} spacing={1}>
+		<div style={{
+			display: 'flex',
+			alignItems: 'center',
+			gap: 2,
+		}}>
 			{icon}
-			<span style={{ color: palette.c_font_black }}>{desc}</span>
-		</Stack>
+			<span>{desc}</span>
+		</div>
 	);
 }
