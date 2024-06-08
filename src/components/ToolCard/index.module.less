@@ -1,36 +1,32 @@
 @import '../../assets/styles/style';
 
 .container {
-    width: 100%;
-    margin: 20px 0;
-    border-radius: 4px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-    background-color: @c_white;
+    border-radius: .5rem;
+    transition: all .3s;
+    box-shadow: var(--card-box-shadow);
+
+    &:hover {
+        box-shadow: var(--card-hover-box-shadow);
+    }
 }
 .title {
-    padding: 16px;
-    font-size: 20px;
-    letter-spacing: 4px;
-    color: @c_font_black;
-}
-.content {
-    width: 100%;
-    padding: 16px 0;
-    display: flex;
-    flex-wrap: wrap;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 .toolItemContainer {
-    width: 20%;
-    height: 60px;
-
-    .flexCenter();
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
 }
 .toolItem {
-    width: 90%;
-    height: 80%;
+    height: 4rem;
+    padding: 0 1rem;
+    border-radius: .25rem;
     display: flex;
     align-items: center;
-    border-radius: 4px;
+    gap: .5rem;
 
     &:hover {
         cursor: pointer;
@@ -42,7 +38,7 @@
 .hvr-sweep-to-right {
     transform: perspective(1px) translateZ(0);
     position: relative;
-    background: @c_blue_a;
+    background: var(--blue-a-color);
     transition-property: color;
     transition-duration: 0.3s;
 
@@ -55,7 +51,7 @@
         left: 0;
         right: 0;
         border-radius: 4px;
-        background: @c_blue_b;
+        background: var(--blue-b-color);
         transform: scaleX(0);
         transform-origin: 50%;
         transition-property: transform;
@@ -65,5 +61,10 @@
 
     &:hover:before {
         transform: scaleX(1);
+    }
+}
+@media (min-width: @screen-md-min) {
+    .toolItemContainer {
+        grid-template-columns: repeat(5, 1fr);
     }
 }
