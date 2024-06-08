@@ -53,11 +53,11 @@ export default function UserEditView() {
 			.then(({ data }) => {
 				setPageData(data);
 				setState({
-					title: data?.title,
-					category: data?.category,
-					tags: data?.tags,
+					title: data?.title ?? '',
+					category: data?.category ?? '',
+					tags: data?.tags ?? '',
 				});
-				setContent(data?.content);
+				setContent(data?.content ?? '');
 			})
 			.catch((err) => {
 				console.log('err', err);
