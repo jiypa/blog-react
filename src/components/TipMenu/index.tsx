@@ -7,27 +7,27 @@ import {
 } from '@mui/material';
 
 interface Props {
-	icon: React.ReactElement;
-	options: string[];
-	handlers: (() => void)[];
+	icon?: React.ReactElement;
+	options?: string[];
+	handlers?: (() => void)[];
 }
 
 export default function TipMenu(props: Props) {
-	const { icon, options = [], handlers = [] } = props;
+	const { icon, options, handlers } = props;
 	const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 	const open = Boolean(anchorEl);
 
 	return (
 		<>
-			<IconButton onClick={(event) => setAnchorEl(event.currentTarget)}>
+			{icon ? <IconButton onClick={(event) => setAnchorEl(event.currentTarget)}>
 				{icon}
-			</IconButton>
+			</IconButton> : null}
 			<Menu
 				anchorEl={anchorEl}
 				open={open}
 				onClose={() => setAnchorEl(null)}
 			>
-				{options?.map((option, index) => (
+				{options?.map?.((option, index) => (
 					<MenuItem key={option} onClick={() => {
 						handlers?.[index]?.();
 						setAnchorEl(null);
