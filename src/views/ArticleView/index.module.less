@@ -1,9 +1,36 @@
 @import '../../assets/styles/style';
 
+.container, .editorContainer {
+    padding: 1rem;
+}
+.subContainer {
+    border-radius: .5rem;
+    transition: all 0.3s;
+    box-shadow: var(--card-box-shadow);
+
+    &:hover {
+        box-shadow: var(--card-hover-box-shadow);
+    }
+}
 .titleContainer {
-    padding: 50px 50px 20px 50px;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: @c_white;
+    gap: 1rem;
+}
+@media (min-width: @screen-md-min) {
+    .editorContainer {
+        padding: 2rem;
+    }
+}
+@media (min-width: @screen-xl-min) {
+    .container {
+        padding: @padding-xl-min;
+    }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-xl-min) {
+    .container {
+        padding: @padding-md-min-xl-max;
+    }
 }

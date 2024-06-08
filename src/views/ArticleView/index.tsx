@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTitle } from 'ahooks';
-import { Box } from '@mui/material';
 import useRequest from '../../hooks/useRequest';
 import ArticleMeta from '../../components/ArticleMeta';
 import ArticleEditor from '../../components/ArticleEditor';
@@ -9,14 +8,14 @@ import Separator from '../../components/Separator';
 import styles from './index.module.less';
 
 interface PageData {
-	pid: number;
-	title: string;
-	category: string;
-	tags: string;
-	views: number;
-	content: string;
-	updatedTime: string;
-	visibility: number;
+	pid?: number;
+	title?: string;
+	category?: string;
+	tags?: string;
+	views?: number;
+	content?: string;
+	updatedTime?: string;
+	visibility?: number;
 }
 
 export default function ArticleView() {
@@ -38,18 +37,22 @@ export default function ArticleView() {
 	}, [pid]);
 
 	return (
-		<Box sx={{ width: '50%' }}>
-			<Box className={styles.titleContainer}>
-				<h2 style={{ marginBottom: 20 }}>{pageData?.title}</h2>
-				<ArticleMeta size={20} meta={{
-					updatedTime: pageData?.updatedTime,
-					category: pageData?.category,
-					tags: pageData?.tags,
-					views: pageData?.views,
-				}}/>
-			</Box>
-			<Separator/>
-			<ArticleEditor readOnly content={pageData?.content}/>
-		</Box>
+		<main className={styles.container}>
+			<div className={styles.subContainer}>
+				<section className={styles.titleContainer}>
+					<header style={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center' }}>{pageData?.title ?? ''}</header>
+					<ArticleMeta meta={{
+						updatedTime: pageData?.updatedTime ?? '',
+						category: pageData?.category ?? '',
+						tags: pageData?.tags ?? '',
+						views: String(pageData?.views ?? ''),
+					}}/>
+				</section>
+				<Separator/>
+				<article className={styles.editorContainer}>
+					<ArticleEditor readOnly value={pageData?.content ?? ''}/>
+				</article>
+			</div>
+		</main>
 	);
 }
