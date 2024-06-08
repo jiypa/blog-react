@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { useTitle, useMount } from 'ahooks';
-import { Box } from '@mui/material';
 import useRequest from '../../hooks/useRequest';
-import ToolCard from '../../components/ToolCard';
-
-interface ToolCardItem {
-	type: string;
-	toolList: {
-		title: string;
-		url: string;
-	}[],
-}
+import ToolCard, { ToolCardProps } from '../../components/ToolCard';
+import styles from './index.module.less';
 
 export default function ToolView() {
-	const [pageData, setPageData] = useState<ToolCardItem[]>([]);
+	const [pageData, setPageData] = useState<ToolCardProps[]>([]);
 	const { request } = useRequest();
 
 	useTitle('工具');
@@ -28,10 +20,10 @@ export default function ToolView() {
 	});
 
 	return (
-		<Box sx={{ width: '50%' }}>
+		<main className={styles.container}>
 			{
 				pageData?.map(({ type, toolList }, index) => <ToolCard type={type} toolList={toolList} key={index}/>)
 			}
-		</Box>
+		</main>
 	);
 }
