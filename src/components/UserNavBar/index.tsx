@@ -1,6 +1,5 @@
 // 用户后台顶部导航栏组件
 import React from 'react';
-import { Box } from '@mui/material';
 import TipMenu from '../TipMenu';
 import styles from './index.module.less';
 
@@ -16,21 +15,21 @@ interface Props {
 }
 
 export default function UserNavBar(props: Props) {
-	const { title = '', tipMenus = [] } = props;
+	const { title, tipMenus } = props;
 
 	return (
-		<Box className={styles.container}>
-			<h4 style={{ margin: '0 30px' }}>{title || '无标题'}</h4>
-			<Box>
+		<nav className={styles.container}>
+			<span style={{ fontWeight: 'bold' }}>{title || '无标题'}</span>
+			<div>
 				{
-					tipMenus?.map(({ icon, options, handlers }, index) => <TipMenu
-						icon={icon ?? <></>}
+					tipMenus?.map?.(({ icon, options, handlers }, index) => <TipMenu
+						key={index}
+						icon={icon}
 						options={options ?? []}
 						handlers={handlers ?? []}
-						key={index}
 					/>)
 				}
-			</Box>
-		</Box>
+			</div>
+		</nav>
 	);
 }
