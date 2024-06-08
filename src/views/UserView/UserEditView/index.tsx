@@ -1,26 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTitle, useSetState } from 'ahooks';
-import { Avatar } from '@mui/material';
-import { MoreVert } from '@mui/icons-material';
+import { MDEditorProps } from '@uiw/react-md-editor';
+import { Icon } from '@iconify/react';
 import dayjs from 'dayjs';
 import useRequest from '../../../hooks/useRequest';
-import useToken from '../../../hooks/useToken';
 import useToast from '../../../hooks/useToast';
 import UserNavBar, { TipMenu } from '../../../components/UserNavBar';
-import UserFootBar from '../../../components/UserFootBar';
-import ArticleEditor, { ArticleEditorRef } from '../../../components/ArticleEditor';
+import ArticleEditor from '../../../components/ArticleEditor';
+import UserFooter from '../../../components/UserFooter';
 import ArticleMetaDialog, { ArticleMetaDialogRef, State } from '../../../components/ArticleMetaDialog';
-import AvatarIcon from '../../../assets/images/icon_avatar.png';
 
 interface PageData {
-	pid: number;
-	title: string;
-	category: string;
-	tags: string;
-	views: number;
-	content: string;
-	visibility: number;
+	pid?: number;
+	title?: string;
+	category?: string;
+	tags?: string;
+	views?: number;
+	content?: string;
+	visibility?: number;
 }
 
 export default function UserEditView() {
@@ -30,42 +28,22 @@ export default function UserEditView() {
 		category: '',
 		tags: '',
 	});
-	const articleEditorRef = useRef<ArticleEditorRef>(null);
+	const [content, setContent] = useState<string>('');
 	const articleMetaDialogRef = useRef<ArticleMetaDialogRef>(null);
 	const navigate = useNavigate();
-	const { username, pid } = useParams();
+	const { pid } = useParams();
 	const { request } = useRequest();
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [token, setToken] = useToken();
 	const { toast } = useToast();
 
-	const tipMenus: TipMenu[] = [
-		{
-			icon: <Avatar style={{ width: 24, height: 24 }} src={AvatarIcon}/>,
-			options: ['我的桌面', '创作中心', '返回首页', '退出登录'],
-			handlers: [
-				// 「我的桌面」回调函数
-				() => navigate(`/user/${username}/desktop`),
-				// 「创作中心」回调函数
-				() => navigate(`/user/${username}/create`),
-				// 「返回首页」回调函数
-				() => navigate('/'),
-				// 「退出登录」回调函数
-				() => {
-					setToken('');
-					navigate('/');
-				}
-			],
-		},
-		{
-			icon: <MoreVert/>,
-			options: ['基础信息', '保存'],
-			handlers: [
-				() => articleMetaDialogRef?.current?.show(),
-				() => saveArticle(),
-			],
-		},
-	];
+	const tipMenus: TipMenu[] = [{
+		icon: <Icon icon='ic:round-more-vert' width='1.2rem' height='1.2rem'/>,
+		options: ['基础信息', '保存文章', '返回上页'],
+		handlers: [
+			() => articleMetaDialogRef?.current?.show(),
+			() => saveArticle(),
+			() => navigate(-1),
+		],
+	}];
 
 	useTitle('文章编辑');
 	useEffect(() => {
@@ -79,6 +57,7 @@ export default function UserEditView() {
 					category: data?.category,
 					tags: data?.tags,
 				});
+				setContent(data?.content);
 			})
 			.catch((err) => {
 				console.log('err', err);
@@ -95,7 +74,7 @@ export default function UserEditView() {
 			article: {
 				...pageData,
 				...state,
-				content: articleEditorRef?.current?.content(),
+				content,
 				updatedTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 			},
 		})
@@ -113,13 +92,13 @@ export default function UserEditView() {
 				title={state.title}
 				tipMenus={tipMenus}
 			/>
-			<ArticleEditor
-				ref={articleEditorRef}
-				autoFocus={false}
-				editorWidth={'50%'}
-				content={pageData?.content}
-			/>
-			<UserFootBar/>
+			<main style={{ marginTop: '4rem' }}>
+				<ArticleEditor
+					value={content}
+					onChange={setContent as MDEditorProps['onChange']}
+				/>
+				<UserFooter/>
+			</main>
 			<ArticleMetaDialog ref={articleMetaDialogRef} state={state} setState={setState}/>
 		</>
 	);
