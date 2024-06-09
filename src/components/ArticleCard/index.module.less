@@ -1,15 +1,25 @@
 @import '../../assets/styles/style';
 
 .container {
-    transition: all 0.5s;
-    background-color: @c_white;
+    transition: all 0.3s;
+    border-radius: 0.5rem;
+    box-shadow: var(--card-box-shadow);
 
     &:hover {
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-
-        h4, div {
-            cursor: pointer;
-            background-color: @c_blue_a !important;
-        }
+        box-shadow: var(--card-hover-box-shadow);
     }
+}
+.title {
+    padding: 1rem;
+    font-weight: bold;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--blue-main-color);
+    }
+}
+.content {
+    margin: 1rem;
+    height: 10.5rem;
+    overflow: hidden;
 }
