@@ -1,8 +1,15 @@
 @import '../../assets/styles/style';
 
-.paginationContainer {
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    background-color: @c_white;
+.container {
+    .basePaddingContainer();
+}
+@media (min-width: @screen-xl-min) {
+    .container {
+        padding: @padding-xl-min;
+    }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-xl-min) {
+    .container {
+        padding: @padding-md-min-xl-max;
+    }
 }

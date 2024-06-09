@@ -5,20 +5,18 @@ import React, {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTitle } from 'ahooks';
-import { Box, Pagination } from '@mui/material';
+import { Pagination } from '@mui/material';
 import useRequest from '../../hooks/useRequest';
 import useQueryParams from '../../hooks/useQueryParams';
 import useScrollTop from '../../hooks/useScrollTop';
-import usePalette from '../../hooks/usePalette';
 import { Article } from '../HomeView';
 import Empty from '../../components/Empty';
 import ArticleCard from '../../components/ArticleCard';
-import Separator from '../../components/Separator';
 import styles from './index.module.less';
 
 interface PageData {
-	totalPages: number;
-	articles: Article[],
+	totalPages?: number;
+	articles?: Article[],
 }
 
 export default function SearchView() {
@@ -29,7 +27,6 @@ export default function SearchView() {
 	const { queryParams } = useQueryParams();
 	const { scrollTop } = useScrollTop();
 	const { request } = useRequest();
-	const { palette } = usePalette();
 	const keyword = queryParams.get('q');
 
 	useTitle(`${keyword}的搜索结果`);
@@ -50,30 +47,31 @@ export default function SearchView() {
 
 
 	return (
-		<Box sx={{ width: '50%' }}>
+		<main className={styles.container}>
 			{articles?.length ? <>
 				{
-					articles?.map(({ pid, title, content }) => <Box
-						onClick={() => navigate(`/article/p/${pid}`)}
-						key={pid}
-					>
-						<ArticleCard title={title} content={content}/>
-						<Separator color={palette.c_main_gray}/>
-					</Box>)
+					articles?.map?.(
+						({ pid, title, content }) =>
+							<ArticleCard
+								key={pid}
+								title={title}
+								content={content}
+								onClick={() => navigate(`/article/p/${pid}`)}
+							/>
+					)
 				}
-				<Box className={styles.paginationContainer}>
-					<Pagination
-						count={pageData?.totalPages}
-						color={'primary'}
-						shape={'rounded'}
-						variant={'outlined'}
-						onChange={(event, page) => {
-							setPageIndex(page);
-							scrollTop('smooth');
-						}}
-					/>
-				</Box>
-			</> : <Empty title={'暂无相关文章，请换个关键字吧'}/>}
-		</Box>
+				<Pagination
+					style={{ alignSelf: 'center' }}
+					count={pageData?.totalPages}
+					color={'primary'}
+					shape={'rounded'}
+					variant={'outlined'}
+					onChange={(event, page) => {
+						setPageIndex(page);
+						scrollTop('smooth');
+					}}
+				/>
+			</> : <Empty title={'暂无相关文章'}/>}
+		</main>
 	);
 }
