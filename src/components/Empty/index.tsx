@@ -13,6 +13,7 @@ export default function Empty(props: Props) {
 	return (
 		<div className={styles.container}>
 			<Icon
+				className={styles.icon}
 				icon={'ion:file-tray-outline'}
 				width={'5rem'}
 				height={'5rem'}
