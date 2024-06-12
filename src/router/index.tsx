@@ -1,5 +1,5 @@
 import React from 'react';
-import { createHashRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import App from '../App';
 import SearchView from '../views/SearchView';
@@ -12,7 +12,7 @@ import UserEditView from '../views/UserView/UserEditView';
 import ArticleView from '../views/ArticleView';
 import NotFoundView from '../views/NotFoundView';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
 	{
 		// 首页
 		path: '/',
