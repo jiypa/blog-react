@@ -3,49 +3,55 @@ import React, {
 	useState,
 	useEffect,
 	useRef,
+	Fragment,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useInViewport } from 'ahooks';
-import { Box, Stack, Button } from '@mui/material';
-import * as THREE from 'three';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Rings from 'vanta/dist/vanta.rings.min.js';
+import { useSize } from 'ahooks';
+import { Drawer } from '@mui/material';
+import { Icon } from '@iconify/react';
 import SearchBar from '../SearchBar';
+import Separator from '../Separator';
 import LoginDialog, { LoginDialogRef } from '../LoginDialog';
 import useRequest from '../../hooks/useRequest';
 import useToken from '../../hooks/useToken';
 import useToast from '../../hooks/useToast';
-import usePalette from '../../hooks/usePalette';
+import emitter from '../../utils/emitter';
+import NavMap from '../../config/nav.config';
 import styles from './index.module.less';
 
 interface Props {
 	pathname?: string;
 }
 interface PageData {
-	username: string;
-	isExpired: boolean;
+	username?: string;
+	isExpired?: boolean;
 }
-
-const navMap = new Map([
-	['/', '首页'],
-	['/archive', '归档'],
-	['/tool', '工具'],
-	['/about', '关于'],
-]);
 
 export default function NavBar(props: Props) {
 	const [pageData, setPageData] = useState<PageData | null>(null);
-	const [vantaEffect, setVantaEffect] = useState(null);
+	const [active, setActive] = useState<boolean>(false);
+	const [open, setOpen] = useState<boolean>(false);
+	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const loginDialogRef = useRef<LoginDialogRef>(null);
-	const bannerRef = useRef<HTMLDivElement>(null);
+	const navRef = useRef<HTMLElement>(null);
+	const size = useSize(navRef);
 	const navigate = useNavigate();
-	const [isNotActive] = useInViewport(bannerRef);
 	const { request } = useRequest();
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [token, setToken] = useToken();
+	const [token] = useToken();
 	const { toast } = useToast();
-	const { palette } = usePalette();
+
+	useEffect(() => {
+		emitter.addListener('switchNavBarActiveStateToTrue', () => {
+			setActive(true);
+		});
+		emitter.addListener('switchNavBarActiveStateToFalse', () => {
+			setActive(false);
+		});
+
+		return () => {
+			emitter.removeAllListeners();
+		};
+	}, []);
 
 	useEffect(() => {
 		if (!token) {
@@ -65,83 +71,144 @@ export default function NavBar(props: Props) {
 	}, [token]);
 
 	useEffect(() => {
-		if (!vantaEffect) {
-			setVantaEffect(Rings({
-				THREE,
-				el: bannerRef.current,
-				mouseControls: true,
-				touchControls: true,
-				gyroControls: false,
-				minHeight: 200.00,
-				minWidth: 200.00,
-			}));
+		if (!size) {
+			return;
 		}
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		return () => vantaEffect?.destroy?.();
-	}, [vantaEffect]);
+		setIsMobile(size.width <= 992);
+	}, [size]);
+
+	const NavBarButtons = () => (
+		<div className={styles.buttonsContainer}>
+			{
+				isMobile ? <>
+					<div style={{
+						display: 'flex',
+						justifyContent: 'space-between',
+						alignItems: 'center',
+					}}>
+						<Icon
+							icon={'ic:round-menu-open'}
+							width={'1.5rem'}
+							height={'1.5rem'}
+						/>
+						<span style={{ fontSize: '1.12rem', fontWeight: 'bold' }}>{'菜单'}</span>
+						<Icon
+							icon={'ic:round-close'}
+							width={'1.5rem'}
+							height={'1.5rem'}
+							onClick={() => setOpen(false)}
+						/>
+					</div>
+					<Separator/>
+				</> : null
+			}
+			{
+				[...NavMap.keys()].map((pathname, index) => (
+					<Fragment key={index}> {/* 这里需将 <> 改为 <Fragment>，否则会出现 Each child in a list should have a unique "key" prop. 警告 */}
+						<span
+							className={isMobile ? styles.mobileButton : (props.pathname !== pathname ? (!active ? styles.button : styles.buttonActiveBySystem) : styles.buttonActiveByUser)}
+							onClick={() => {
+								if (isMobile) {
+									setOpen(false);
+								}
+								navigate(pathname);
+							}}
+						>
+							{
+								isMobile ? <Icon
+									icon={NavMap.get(pathname)?.icon ?? ''}
+									width={'1.12rem'}
+									height={'1.12rem'}
+								/> : null
+							}
+							{NavMap.get(pathname)?.title}
+						</span>
+						{isMobile ? <Separator/> : null}
+					</Fragment>
+				))
+			}
+			{
+				token && !pageData?.isExpired ? <span
+					className={isMobile ? styles.mobileButton : (props.pathname !== '/user' ? (!active ? styles.button : styles.buttonActiveBySystem) : styles.buttonActiveByUser)}
+					onClick={() => {
+						if (isMobile) {
+							setOpen(false);
+						}
+						if (pageData?.username === 'admin') {
+							navigate(`/user/${pageData?.username}/desktop`);
+						} else {
+							toast('当前该功能仅向管理员开放，请联系站长获取管理员权限');
+						}
+					}}
+				>
+					{
+						isMobile ? <Icon
+							icon={'ic:round-person'}
+							width={'1.12rem'}
+							height={'1.12rem'}
+						/> : null
+					}
+					{'我的'}
+				</span> : <span
+					className={isMobile ? styles.mobileButton : (!active ? styles.button : styles.buttonActiveBySystem)}
+					onClick={() => {
+						if (isMobile) {
+							setOpen(false);
+						}
+						loginDialogRef?.current?.show();
+						loginDialogRef?.current?.setLoginDialogStatus(true);
+					}}
+				>
+					{
+						isMobile ? <Icon
+							icon={'ic:round-login'}
+							width={'1.12rem'}
+							height={'1.12rem'}
+						/> : null
+					}
+					{'登录/注册'}
+				</span>
+			}
+			{isMobile ? <Separator/> : null}
+			<SearchBar
+				style={{
+					order: isMobile ? 0 : -1,
+					width: isMobile ? '100%' : '10.8rem',
+				}}
+				active={isMobile || active}
+				placeholder={'搜索文章'}
+				onClick={() => {
+					if (isMobile) {
+						setOpen(false);
+					}
+				}}
+			/>
+		</div>
+	);
 
 	return (
 		<>
-			<nav className={isNotActive ? styles.container : styles.containerActive}>
-				<Button
-					disableRipple
-					sx={{
-						margin: '0 120px',
-						fontSize: 16,
-						color: isNotActive ? palette.c_main_white : palette.c_font_black,
-					}}
+			<nav ref={navRef} className={!active ? styles.container : styles.containerActive}>
+				<span
+					style={!active ? { color: 'var(--gray-main-color)' } : {}}
+					className={styles.title}
 					onClick={() => navigate('/')}
 				>
-					{'YEEBAY\'S BLOG'}
-				</Button>
-				<Stack
-					sx={{ margin: '0 120px' }}
-					spacing={2}
-					direction={'row'}
-				>
-					<SearchBar active={!isNotActive} placeholder={'搜索文章'}/>
-					{
-						[...navMap.keys()].map((pathname, index) => <Button
-							className={props.pathname !== pathname ? (isNotActive ? styles.button : styles.buttonActiveBySystem) : styles.buttonActiveByUser}
-							variant={'text'}
-							onClick={() => navigate(pathname)}
-							key={index}
-						>
-							{navMap.get(pathname)}
-						</Button>)
-					}
-					{
-						token && !pageData?.isExpired ? <Button
-							className={props.pathname !== '/user' ? (isNotActive ? styles.button : styles.buttonActiveBySystem) : styles.buttonActiveByUser}
-							variant={'text'}
-							onClick={() => {
-								if (pageData?.username === 'admin') {
-									navigate(`/user/${pageData?.username}/desktop`);
-								} else {
-									toast('当前该功能仅向管理员开放，请联系站长获取管理员权限');
-								}
-							}}
-						>
-							{'我的'}
-						</Button> : <Button
-							className={styles.loginButton}
-							variant={'contained'}
-							size={'small'}
-							onClick={() => {
-								loginDialogRef?.current?.show();
-								loginDialogRef?.current?.setLoginDialogStatus(true);
-							}}
-						>
-							{'登录/注册'}
-						</Button>
-					}
-				</Stack>
+					{'寄依的博客'}
+				</span>
+				{
+					isMobile ? <Icon
+						icon={'ic:round-menu'}
+						width={'1.5rem'}
+						height={'1.5rem'}
+						style={!active ? { color: 'var(--gray-main-color)' } : {}}
+						onClick={() => setOpen(true)}
+					/> : <NavBarButtons/>
+				}
 			</nav>
-			<Box className={styles.bannerContainer} ref={bannerRef}>
-				<p style={{ fontSize: 72 }}>{'YEEBAY'}</p>
-				<p style={{ top: 10, fontSize: 18 }}>{'永远做脚踏实地的追梦人 不要做泛泛而谈的空想家'}</p>
-			</Box>
+			<Drawer anchor={'top'} open={open} onClose={() => setOpen(false)}>
+				<NavBarButtons/>
+			</Drawer>
 			<LoginDialog ref={loginDialogRef}/>
 		</>
 	);
