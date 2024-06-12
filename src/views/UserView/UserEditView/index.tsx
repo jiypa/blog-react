@@ -36,7 +36,7 @@ export default function UserEditView() {
 	const { toast } = useToast();
 
 	const tipMenus: TipMenu[] = [{
-		icon: <Icon icon='ic:round-more-vert' width='1.2rem' height='1.2rem'/>,
+		icon: <Icon icon={'ic:round-more-vert'} width={'1.2rem'} height={'1.2rem'}/>,
 		options: ['基础信息', '保存文章', '返回上页'],
 		handlers: [
 			() => articleMetaDialogRef?.current?.show(),

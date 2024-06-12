@@ -13,9 +13,9 @@ export default function Empty(props: Props) {
 	return (
 		<div className={styles.container}>
 			<Icon
-				icon='ion:file-tray-outline'
-				width='5rem'
-				height='5rem'
+				icon={'ion:file-tray-outline'}
+				width={'5rem'}
+				height={'5rem'}
 				style={{ color: 'var(--gray-a-color)' }}
 			/>
 			<span>{title ?? ''}</span>

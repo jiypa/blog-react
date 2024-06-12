@@ -55,9 +55,9 @@ export default function SearchBar(props: SearchBarProps) {
 			/>
 			<div className={styles.buttonContainer}>
 				<Icon
-					icon='ic:round-search'
-					width='1rem'
-					height='1rem'
+					icon={'ic:round-search'}
+					width={'1rem'}
+					height={'1rem'}
 					style={!active ? { color: 'var(--white-main-color)' } : {}}
 					onClick={() => {
 						onClick?.();

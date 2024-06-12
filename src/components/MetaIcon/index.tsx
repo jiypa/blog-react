@@ -17,8 +17,8 @@ export default function MetaIcon(props: Props) {
 			<Tooltip arrow title={hint}>
 				<Icon
 					icon={icon}
-					width='1rem'
-					height='1rem'
+					width={'1rem'}
+					height={'1rem'}
 					style={{ color: 'var(--blue-main-color)' }}
 				/>
 			</Tooltip>

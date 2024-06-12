@@ -22,10 +22,10 @@ export default function BackTop() {
 			<div className={styles.container} onClick={() => scrollTop('smooth')}>
 				<Fab className={styles.fab} size={'small'}>
 					<Icon
-						icon='ic:round-arrow-upward'
+						icon={'ic:round-arrow-upward'}
 						className={styles.icon}
-						width='1.25rem'
-						height='1.25rem'
+						width={'1.25rem'}
+						height={'1.25rem'}
 					/>
 				</Fab>
 			</div>
