@@ -12,6 +12,7 @@ import {
 } from '@mui/lab';
 import dayjs from 'dayjs';
 import useRequest from '../../hooks/useRequest';
+import Banner from '../../components/Banner';
 import Separator from '../../components/Separator';
 import styles from './index.module.less';
 
@@ -41,30 +42,33 @@ export default function ArchiveView() {
 	});
 
 	return (
-		<main className={styles.container}>
-			<section className={styles.subContainer}>
-				<span className={styles.totalCount}>{`🎉 当前发表文章总数为${pageData?.total ?? ''}篇 🎉`}</span>
-				<Separator/>
-				<Timeline position={'alternate'} style={{ padding: '1rem 0' }}>
-					{
-						pageData?.articles?.map(({ pid, title, updatedTime }, index, array) => (
-							<TimelineItem key={pid}>
-								<TimelineSeparator>
-									<TimelineDot variant={'outlined'} color={'primary'}/>
-									{index !== array.length - 1 ? <TimelineConnector/> : null}
-								</TimelineSeparator>
-								<TimelineContent>
-									<div className={styles.title} onClick={() => navigate(`/article/p/${pid}`)}>
-										<Tooltip arrow title={dayjs(updatedTime).format('YYYY-MM-DD HH:mm:ss')}>
-											<span>{title}</span>
-										</Tooltip>
-									</div>
-								</TimelineContent>
-							</TimelineItem>
-						))
-					}
-				</Timeline>
-			</section>
-		</main>
+		<>
+			<Banner title={'归档'}/>
+			<main className={styles.container}>
+				<section className={styles.subContainer}>
+					<span className={styles.totalCount}>{`🎉 当前发表文章总数为${pageData?.total ?? ''}篇 🎉`}</span>
+					<Separator/>
+					<Timeline position={'alternate'} style={{ padding: '1rem 0' }}>
+						{
+							pageData?.articles?.map(({ pid, title, updatedTime }, index, array) => (
+								<TimelineItem key={pid}>
+									<TimelineSeparator>
+										<TimelineDot variant={'outlined'} color={'primary'}/>
+										{index !== array.length - 1 ? <TimelineConnector/> : null}
+									</TimelineSeparator>
+									<TimelineContent>
+										<div className={styles.title} onClick={() => navigate(`/article/p/${pid}`)}>
+											<Tooltip arrow title={dayjs(updatedTime).format('YYYY-MM-DD HH:mm:ss')}>
+												<span>{title}</span>
+											</Tooltip>
+										</div>
+									</TimelineContent>
+								</TimelineItem>
+							))
+						}
+					</Timeline>
+				</section>
+			</main>
+		</>
 	);
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTitle, useMount } from 'ahooks';
 import useRequest from '../../hooks/useRequest';
+import Banner from '../../components/Banner';
 import ToolCard, { ToolCardProps } from '../../components/ToolCard';
 import styles from './index.module.less';
 
@@ -20,10 +21,16 @@ export default function ToolView() {
 	});
 
 	return (
-		<main className={styles.container}>
-			{
-				pageData?.map?.(({ type, toolList }, index) => <ToolCard type={type ?? ''} toolList={toolList ?? []} key={index}/>)
-			}
-		</main>
+		<>
+			<Banner title={'工具'}/>
+			<main className={styles.container}>
+				{
+					pageData?.map?.(({ type, toolList }, index) => <ToolCard
+						type={type ?? ''}
+						toolList={toolList ?? []}
+						key={index}/>)
+				}
+			</main>
+		</>
 	);
 }

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTitle } from 'ahooks';
 import useRequest from '../../hooks/useRequest';
+import Banner from '../../components/Banner';
 import ArticleMeta from '../../components/ArticleMeta';
 import ArticleEditor from '../../components/ArticleEditor';
-import Separator from '../../components/Separator';
 import styles from './index.module.less';
 
 interface PageData {
@@ -37,22 +37,21 @@ export default function ArticleView() {
 	}, [pid]);
 
 	return (
-		<main className={styles.container}>
-			<div className={styles.subContainer}>
-				<section className={styles.titleContainer}>
-					<header style={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center' }}>{pageData?.title ?? ''}</header>
-					<ArticleMeta meta={{
-						updatedTime: pageData?.updatedTime ?? '',
-						category: pageData?.category ?? '',
-						tags: pageData?.tags ?? '',
-						views: String(pageData?.views ?? ''),
-					}}/>
-				</section>
-				<Separator/>
+		<>
+			<Banner
+				title={pageData?.title ?? ''}
+				customContent={<ArticleMeta meta={{
+					updatedTime: pageData?.updatedTime ?? '',
+					category: pageData?.category ?? '',
+					tags: pageData?.tags ?? '',
+					views: String(pageData?.views ?? ''),
+				}}/>}
+			/>
+			<main className={styles.container}>
 				<article className={styles.editorContainer}>
 					<ArticleEditor readOnly value={pageData?.content ?? ''}/>
 				</article>
-			</div>
-		</main>
+			</main>
+		</>
 	);
 }

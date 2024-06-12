@@ -3,7 +3,7 @@
 .container, .editorContainer {
     padding: 1rem;
 }
-.subContainer {
+.editorContainer {
     border-radius: .5rem;
     transition: all 0.3s;
     box-shadow: var(--card-box-shadow);
@@ -11,13 +11,6 @@
     &:hover {
         box-shadow: var(--card-hover-box-shadow);
     }
-}
-.titleContainer {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
 }
 @media (min-width: @screen-md-min) {
     .editorContainer {
