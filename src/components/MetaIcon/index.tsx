@@ -13,16 +13,16 @@ export default function MetaIcon(props: Props) {
 	const { hint, icon, desc } = props;
 
 	return (
-		<div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+		<div style={{ display: 'flex', alignItems: 'center', gap: '.2rem' }}>
 			<Tooltip arrow title={hint}>
 				<Icon
 					icon={icon}
 					width={'1rem'}
 					height={'1rem'}
-					style={{ color: 'var(--blue-main-color)' }}
+					style={{ color: 'var(--white-main-color)' }}
 				/>
 			</Tooltip>
-			<span>{desc}</span>
+			<span style={{ color: 'var(--white-main-color)' }}>{desc}</span>
 		</div>
 	);
 }
