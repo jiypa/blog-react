@@ -16,7 +16,6 @@ import useRequest from '../../hooks/useRequest';
 import useToken from '../../hooks/useToken';
 import useToast from '../../hooks/useToast';
 import emitter from '../../utils/emitter';
-import NavMap from '../../config/nav.config';
 import styles from './index.module.less';
 
 interface Props {
@@ -26,6 +25,37 @@ interface PageData {
 	username?: string;
 	isExpired?: boolean;
 }
+
+const NavMap = new Map([
+	[
+		'/',
+		{
+			title: '首页',
+			icon: 'ic:round-home',
+		}
+	],
+	[
+		'/archive',
+		{
+			title: '归档',
+			icon: 'ic:round-archive',
+		}
+	],
+	[
+		'/tool',
+		{
+			title: '工具',
+			icon: 'ic:round-handyman',
+		}
+	],
+	[
+		'/about',
+		{
+			title: '关于',
+			icon: 'ic:round-info',
+		}
+	],
+]);
 
 export default function NavBar(props: Props) {
 	const [pageData, setPageData] = useState<PageData | null>(null);
