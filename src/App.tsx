@@ -21,13 +21,11 @@ export default function App() {
 	}, [pathname]);
 
 	return (
-		<>
-			<SnackbarProvider maxSnack={3} autoHideDuration={2000}>
-				{!isNotFoundPath && !isUserPath ? <NavBar pathname={pathname}/> : null}
-				{isRootPath ? <HomeView/> : <Outlet/>}
-				{!isNotFoundPath && !isUserPath ? <Footer/> : null}
-				<BackTop/>
-			</SnackbarProvider>
-		</>
+		<SnackbarProvider maxSnack={3} autoHideDuration={2000}>
+			{!isNotFoundPath && !isUserPath ? <NavBar pathname={pathname}/> : null}
+			{isRootPath ? <HomeView/> : <Outlet/>}
+			{!isNotFoundPath && !isUserPath ? <Footer/> : null}
+			<BackTop/>
+		</SnackbarProvider>
 	);
 }
