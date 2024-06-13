@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
+	Drawer,
 	Button,
 	Dialog,
 	DialogTitle,
@@ -12,9 +13,12 @@ import {
 } from '@mui/material';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
 import { useTitle, useMount } from 'ahooks';
+import { Icon } from '@iconify/react';
 import useRequest from '../../../hooks/useRequest';
+import useMobile from '../../../hooks/useMobile';
 import useToken from '../../../hooks/useToken';
 import useToast from '../../../hooks/useToast';
+import Separator from '../../../components/Separator';
 import styles from './index.module.less';
 
 interface Article {
@@ -32,14 +36,15 @@ interface PageData {
 
 export default function UserDesktopView() {
 	const [pageData, setPageData] = useState<PageData | null>(null);
-	const [open, setOpen] = useState<boolean>(false);
+	const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+	const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 	const [deletePid, setDeletePid] = useState<number>(0);
 	const [deleteTitle, setDeleteTitle] = useState<string>('');
 	const navigate = useNavigate();
 	const { username } = useParams();
 	const { request } = useRequest();
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [token, setToken] = useToken();
+	const { isMobile } = useMobile();
+	const [, setToken] = useToken();
 	const { toast } = useToast();
 
 	const theme = createTheme({
@@ -94,7 +99,7 @@ export default function UserDesktopView() {
 							onClick={() => {
 								setDeletePid(pid);
 								setDeleteTitle(title);
-								setOpen(true);
+								setDialogOpen(true);
 							}}
 						>
 							{'删除'}
@@ -119,25 +124,69 @@ export default function UserDesktopView() {
 			});
 	}
 
+	const SideBarButton = (props: { title: string, icon: string, onClick: () => void }) => {
+		const { title, icon, onClick } = props;
+		const className = isMobile ? styles.mobileButton : styles.sideBarButton;
+
+		return (
+			<>
+				<span className={className} onClick={() => {
+					setDrawerOpen(false);
+					onClick();
+				}}>
+					<Icon
+						icon={icon}
+						width={'1rem'}
+						height={'1rem'}
+					/>
+					{title}
+				</span>
+				{isMobile ? <Separator/> : null}
+			</>
+		);
+	};
+
+	const SideBarButtons = () => (
+		<>
+			<SideBarButton title={'我的桌面'} icon={'ic:round-desktop-mac'} onClick={() => {
+				navigate(`/user/${username}/desktop`);
+			}}/>
+			<SideBarButton title={'创作中心'} icon={'ic:round-create'} onClick={() => {
+				navigate(`/user/${username}/create`);
+			}}/>
+			<SideBarButton title={'数据分析'} icon={'ic:round-trending-up'} onClick={() => {
+				toast('正在开发，敬请期待');
+			}}/>
+			<SideBarButton title={'返回首页'} icon={'ic:round-home'} onClick={() => {
+				navigate('/');
+			}}/>
+			<SideBarButton title={'退出登录'} icon={'ic:round-logout'} onClick={() => {
+				setToken('');
+				navigate('/');
+			}}/>
+		</>
+	);
+
 	return (
 		<>
 			<header className={styles.header}>
-				<span>{'博客后台系统'}</span>
+				<span className={styles.title}>{'博客后台管理系统'}</span>
+				{
+					isMobile ? <Icon
+						icon={'ic:round-menu'}
+						width={'1.5rem'}
+						height={'1.5rem'}
+						onClick={() => setDrawerOpen(true)}
+					/> : null
+				}
 			</header>
-			<nav className={styles.sideBar}>
-				<span className={styles.sideBarButton} onClick={() => navigate(`/user/${username}/desktop`)}>{'我的桌面'}</span>
-				<span className={styles.sideBarButton} onClick={() => navigate(`/user/${username}/create`)}>{'创作中心'}</span>
-				<span className={styles.sideBarButton} onClick={() => toast('正在开发，敬请期待')}>{'数据分析'}</span>
-				<span className={styles.sideBarButton} onClick={() => navigate('/')}>{'返回首页'}</span>
-				<span className={styles.sideBarButton} onClick={() => {
-					setToken('');
-					navigate('/');
-				}}>
-					{'退出登录'}
-				</span>
-			</nav>
+			{
+				!isMobile ? <nav className={styles.sideBar}>
+					<SideBarButtons/>
+				</nav> : null
+			}
 			<main className={styles.container}>
-				<span style={{ display: 'block', padding: '1.25rem' }}>{'我的桌面'}</span>
+				<span style={{ display: 'block', padding: '1.2rem 2rem' }}>{'我的桌面'}</span>
 				<ThemeProvider theme={theme}>
 					<MaterialReactTable
 						enableRowNumbers
@@ -170,8 +219,8 @@ export default function UserDesktopView() {
 				</ThemeProvider>
 			</main>
 			<Dialog
-				open={open}
-				onClose={() => setOpen(false)}
+				open={dialogOpen}
+				onClose={() => setDialogOpen(false)}
 			>
 				<DialogTitle style={{ fontSize: '1rem' }}>
 					{`确定删除文章《${deleteTitle}》吗？`}
@@ -182,13 +231,13 @@ export default function UserDesktopView() {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={() => setOpen(false)}>{'取消'}</Button>
+					<Button onClick={() => setDialogOpen(false)}>{'取消'}</Button>
 					<Button
 						autoFocus
 						onClick={() => {
 							request.post('/article/delete', { pid: deletePid })
 								.then(({ msg }) => {
-									setOpen(false);
+									setDialogOpen(false);
 									toast(msg);
 									// 刷新当前页面
 									fetchPageData();
@@ -202,6 +251,32 @@ export default function UserDesktopView() {
 					</Button>
 				</DialogActions>
 			</Dialog>
+			{
+				isMobile ? <Drawer anchor={'top'} open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+					<div className={styles.buttonsContainer}>
+						<div style={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							alignItems: 'center',
+						}}>
+							<Icon
+								icon={'ic:round-menu-open'}
+								width={'1.5rem'}
+								height={'1.5rem'}
+							/>
+							<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{'菜单'}</span>
+							<Icon
+								icon={'ic:round-close'}
+								width={'1.5rem'}
+								height={'1.5rem'}
+								onClick={() => setDrawerOpen(false)}
+							/>
+						</div>
+						<Separator/>
+						<SideBarButtons/>
+					</div>
+				</Drawer> : null
+			}
 		</>
 	);
 }
