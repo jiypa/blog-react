@@ -72,13 +72,11 @@ export default function UserCreateView() {
 				title={state.title}
 				tipMenus={tipMenus}
 			/>
-			<main style={{ marginTop: '4rem' }}>
-				<ArticleEditor
-					value={content}
-					onChange={setContent as MDEditorProps['onChange']}
-				/>
-				<UserFooter/>
-			</main>
+			<ArticleEditor
+				value={content}
+				onChange={setContent as MDEditorProps['onChange']}
+			/>
+			<UserFooter/>
 			<ArticleMetaDialog ref={articleMetaDialogRef} state={state} setState={setState}/>
 		</>
 	);

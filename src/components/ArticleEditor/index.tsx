@@ -44,7 +44,7 @@ export default function ArticleEditor(props: Props) {
 			code: Code,
 		}}
 	/> : <MDEditor
-		height={'calc(100vh - 7.06rem)'}
+		height={'calc(100vh - 7rem - 2px)'}
 		value={value ?? ''}
 		onChange={onChange}
 		previewOptions={{
