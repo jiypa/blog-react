@@ -6,13 +6,13 @@ import React, {
 	Fragment,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSize } from 'ahooks';
 import { Drawer } from '@mui/material';
 import { Icon } from '@iconify/react';
 import SearchBar from '../SearchBar';
 import Separator from '../Separator';
 import LoginDialog, { LoginDialogRef } from '../LoginDialog';
 import useRequest from '../../hooks/useRequest';
+import useMobile from '../../hooks/useMobile';
 import useToken from '../../hooks/useToken';
 import useToast from '../../hooks/useToast';
 import emitter from '../../utils/emitter';
@@ -61,12 +61,10 @@ export default function NavBar(props: Props) {
 	const [pageData, setPageData] = useState<PageData | null>(null);
 	const [active, setActive] = useState<boolean>(false);
 	const [open, setOpen] = useState<boolean>(false);
-	const [isMobile, setIsMobile] = useState<boolean>(false);
 	const loginDialogRef = useRef<LoginDialogRef>(null);
-	const navRef = useRef<HTMLElement>(null);
-	const size = useSize(navRef);
 	const navigate = useNavigate();
 	const { request } = useRequest();
+	const { isMobile } = useMobile();
 	const [token] = useToken();
 	const { toast } = useToast();
 
@@ -99,13 +97,6 @@ export default function NavBar(props: Props) {
 				console.log('err', err);
 			});
 	}, [token]);
-
-	useEffect(() => {
-		if (!size) {
-			return;
-		}
-		setIsMobile(size.width <= 992);
-	}, [size]);
 
 	const NavBarButtons = () => (
 		<div className={styles.buttonsContainer}>
@@ -218,7 +209,7 @@ export default function NavBar(props: Props) {
 
 	return (
 		<>
-			<nav ref={navRef} className={!active ? styles.container : styles.containerActive}>
+			<nav className={!active ? styles.container : styles.containerActive}>
 				<span
 					style={!active ? { color: 'var(--gray-main-color)' } : {}}
 					className={styles.title}
