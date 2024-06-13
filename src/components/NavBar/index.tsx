@@ -227,9 +227,11 @@ export default function NavBar(props: Props) {
 					/> : <NavBarButtons/>
 				}
 			</nav>
-			<Drawer anchor={'top'} open={open} onClose={() => setOpen(false)}>
-				<NavBarButtons/>
-			</Drawer>
+			{
+				isMobile ? <Drawer anchor={'top'} open={open} onClose={() => setOpen(false)}>
+					<NavBarButtons/>
+				</Drawer> : null
+			}
 			<LoginDialog ref={loginDialogRef}/>
 		</>
 	);
