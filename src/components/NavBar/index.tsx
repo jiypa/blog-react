@@ -112,7 +112,7 @@ export default function NavBar(props: Props) {
 							width={'1.5rem'}
 							height={'1.5rem'}
 						/>
-						<span style={{ fontSize: '1.12rem', fontWeight: 'bold' }}>{'菜单'}</span>
+						<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{'菜单'}</span>
 						<Icon
 							icon={'ic:round-close'}
 							width={'1.5rem'}
@@ -138,8 +138,8 @@ export default function NavBar(props: Props) {
 							{
 								isMobile ? <Icon
 									icon={NavMap.get(pathname)?.icon ?? ''}
-									width={'1.12rem'}
-									height={'1.12rem'}
+									width={'1rem'}
+									height={'1rem'}
 								/> : null
 							}
 							{NavMap.get(pathname)?.title}
