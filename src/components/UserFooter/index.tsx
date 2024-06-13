@@ -3,5 +3,5 @@ import React from 'react';
 import styles from './index.module.less';
 
 export default function UserFooter() {
-	return <footer className={styles.container}>{'博客后台系统'}</footer>;
+	return <footer className={styles.container}>{'博客后台管理系统'}</footer>;
 }
