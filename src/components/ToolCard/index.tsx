@@ -1,5 +1,6 @@
 // 工具卡片组件
 import React from 'react';
+import { Avatar } from '@mui/material';
 import useUrl from '../../hooks/useUrl';
 import Separator from '../Separator';
 import styles from './index.module.less';
@@ -26,13 +27,13 @@ export default function ToolCard(props: ToolCardProps) {
 			<div className={styles.toolItemContainer}>
 				{
 					toolList?.map?.(({ title, url }, index) => (
-						<div className={styles.toolItem}  key={index} onClick={() => openUrl(url ?? '', 'blank')}>
-							<img
+						<div className={styles.toolItem} key={index} onClick={() => openUrl(url ?? '', 'blank')}>
+							<Avatar
 								src={`https://api.iowen.cn/favicon/${regExp.exec(url ?? '')?.[0]}.png`}
 								style={{ width: '2rem', height: '2rem', borderRadius: '50%' }}
 								alt={title ?? ''}
 							/>
-							<span>{title ?? ''}</span>
+							<span style={{ wordBreak: 'break-all' }}>{title ?? ''}</span>
 						</div>
 					))
 				}
