@@ -58,8 +58,8 @@ export default forwardRef(function ArticleMetaDialog(props: Props, ref: Forwarde
 			<section className={styles.container}>
 				<Icon
 					icon={'ic:round-close'}
-					width={'1.2rem'}
-					height={'1.2rem'}
+					width={'1.5rem'}
+					height={'1.5rem'}
 					style={{
 						position: 'absolute',
 						top: '.5rem',

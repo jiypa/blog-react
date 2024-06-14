@@ -91,8 +91,8 @@ export default forwardRef(function LoginDialog(props, ref) {
 			<section className={styles.container}>
 				<Icon
 					icon={'ic:round-close'}
-					width={'1.2rem'}
-					height={'1.2rem'}
+					width={'1.5rem'}
+					height={'1.5rem'}
 					style={{
 						position: 'absolute',
 						top: '.5rem',
