@@ -38,7 +38,7 @@ export default function Banner(props: Props) {
 		<section
 			ref={bannerRef}
 			className={styles.container}
-			style={height ? { height } : { height: '40vh' }}
+			style={height ? { height } : { height: '30vh' }}
 		>
 			<span className={pathname === '/' ? styles.indexTitle : styles.title}>{title ?? ''}</span>
 			{customContent}
