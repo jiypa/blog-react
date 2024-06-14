@@ -264,7 +264,7 @@ export default function UserDesktopView() {
 								width={'1.5rem'}
 								height={'1.5rem'}
 							/>
-							<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{'菜单'}</span>
+							<span>{'菜单'}</span>
 							<Icon
 								icon={'ic:round-close'}
 								width={'1.5rem'}
