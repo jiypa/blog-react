@@ -10,7 +10,6 @@ import {
 	TimelineContent,
 	TimelineDot,
 } from '@mui/lab';
-import dayjs from 'dayjs';
 import useRequest from '../../hooks/useRequest';
 import Banner from '../../components/Banner';
 import Separator from '../../components/Separator';
@@ -58,7 +57,7 @@ export default function ArchiveView() {
 									</TimelineSeparator>
 									<TimelineContent>
 										<div className={styles.title} onClick={() => navigate(`/article/p/${pid}`)}>
-											<Tooltip arrow title={dayjs(updatedTime).format('YYYY-MM-DD HH:mm:ss')}>
+											<Tooltip arrow title={updatedTime}>
 												<span>{title}</span>
 											</Tooltip>
 										</div>
