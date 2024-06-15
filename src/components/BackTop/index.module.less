@@ -1,3 +1,5 @@
+@import '../../assets/styles/style';
+
 .container {
     position: fixed;
     bottom: 2rem;
@@ -6,12 +8,15 @@
 }
 .fab {
     background-color: white !important;
+}
+@media (min-width: @screen-md-min) {
+    .fab {
+        &:hover {
+            background-color: var(--blue-main-color) !important;
 
-    &:hover {
-        background-color: var(--blue-main-color) !important;
-
-        .icon {
-            color: white;
+            .icon {
+                color: white;
+            }
         }
     }
 }
