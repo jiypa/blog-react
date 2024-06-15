@@ -13,7 +13,7 @@ export interface ToolCardProps {
 	}[],
 }
 
-const pattern = '(w{3}.)?([a-zA-Z0-9]+)?.[a-zA-Z0-9]+.(com|org|net|cn)?.(com|cn|net|org|info|cc|tv|top|vip|xyz|me|fun|cf|ac|lu)$';
+const pattern = '(w{3}.)?([a-zA-Z0-9]+)?.[a-zA-Z0-9]+.(com|org|net|cn)?.(com|cn|net|org|info|cc|tv|top|vip|xyz|me|fun|cf|ac|lu|app)$';
 const regExp = new RegExp(pattern);
 
 export default function ToolCard(props: ToolCardProps) {
