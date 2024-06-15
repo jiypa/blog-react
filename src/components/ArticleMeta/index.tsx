@@ -22,7 +22,12 @@ export default function ArticleMeta(props: Props) {
 	const { updatedTime, category, tags, views } = meta;
 
 	return (
-		<div style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+		<div style={{
+			display: 'flex',
+			alignItems: 'center',
+			flexWrap: 'wrap',
+			gap: '.5rem',
+		}}>
 			<MetaIcon hint={'更新时间'} icon={'ic:round-access-time'} desc={updatedTime ?? ''}/>
 			<VSeparator/>
 			<MetaIcon hint={'文章分类'} icon={'ic:round-folder-open'} desc={category ?? ''}/>
