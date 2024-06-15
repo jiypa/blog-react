@@ -7,6 +7,7 @@ import React, {
 import { useLocation } from 'react-router-dom';
 import { useScroll, useSize } from 'ahooks';
 import { remToPx } from 'css-unit-converter-js';
+import useMobile from '../../hooks/useMobile';
 import emitter from '../../utils/emitter';
 import styles from './index.module.less';
 
@@ -22,6 +23,7 @@ export default function Banner(props: Props) {
 	const { pathname } = useLocation();
 	const scroll = useScroll(document);
 	const size = useSize(bannerRef);
+	const { isMobile } = useMobile();
 
 	useEffect(() => {
 		if (!scroll || !size) {
@@ -38,7 +40,7 @@ export default function Banner(props: Props) {
 		<section
 			ref={bannerRef}
 			className={styles.container}
-			style={height ? { height } : { height: '40vh' }}
+			style={height ? { height } : { height: isMobile ? '30vh' : '40vh' }}
 		>
 			<span className={pathname === '/' ? styles.indexTitle : styles.title}>{title ?? ''}</span>
 			{customContent}
