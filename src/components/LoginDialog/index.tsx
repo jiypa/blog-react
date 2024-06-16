@@ -55,7 +55,7 @@ export default forwardRef(function LoginDialog(props, ref) {
 				dismiss();
 			})
 			.catch((err) => {
-				toast(err);
+				toast(err, 'error');
 			});
 	}
 
@@ -71,7 +71,7 @@ export default forwardRef(function LoginDialog(props, ref) {
 				dismiss();
 			})
 			.catch((err) => {
-				toast(err);
+				toast(err, 'error');
 			});
 	}
 

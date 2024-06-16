@@ -62,7 +62,7 @@ export default function UserCreateView() {
 				navigate(`/user/${username}/desktop`);
 			})
 			.catch((err) => {
-				toast(err);
+				toast(err, 'error');
 			});
 	}
 

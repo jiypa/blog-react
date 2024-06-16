@@ -243,7 +243,7 @@ export default function UserDesktopView() {
 									fetchPageData();
 								})
 								.catch((err) => {
-									toast(err);
+									toast(err, 'error');
 								});
 						}}
 					>
