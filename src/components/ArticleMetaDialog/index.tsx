@@ -36,7 +36,7 @@ interface Props {
 	setState: (state: State) => void;
 }
 
-export const ArticleCategories = ['前端', '后端', '算法', '网络', '安全', '大数据', '人工智能'];
+export const ArticleCategories = ['随笔', '前端', '后端', '算法', '网络', '安全', '大数据', '人工智能'];
 
 export default forwardRef(function ArticleMetaDialog(props: Props, ref: ForwardedRef<ArticleMetaDialogRef>) {
 	const { state, setState } = props;
