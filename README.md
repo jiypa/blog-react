@@ -4,6 +4,9 @@
 <h1 align="center">
     寄依的博客
 </h1>
+<p align="center">
+    💪 永远做脚踏实地的追梦人，不要做泛泛而谈的空想家
+</p>
 <div align="center">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/jiypa/blog-react?style=flat">
     <img alt="GitHub forks" src="https://img.shields.io/github/forks/jiypa/blog-react?style=flat">
@@ -26,7 +29,7 @@
 
 ## 🔥 项目亮点
 
-👍🏻 适配 PC 端和移动端
+✅ 适配 PC 端和移动端
 
 ## 🚀 安装 & 运行
 
@@ -42,11 +45,7 @@ npm install
 npm run dev
 ```
 
-## 🗒 TODO：
-
-✅ 适配 PC 端和移动端
-
-✅ 添加网站运行时长统计信息
+## 🎯 TODO：
 
 ⌛️ 开放文章评论机制
 
