@@ -29,18 +29,19 @@ export interface Article {
 	content: string;
 	updatedTime: string;
 }
-
 interface PageData {
 	totalPages: number;
-	top5Articles: {
-		pid: number;
-		title: string;
-	}[],
 	articles: Article[],
+}
+interface Top5Article {
+	pid: number;
+	title: string;
 }
 
 export default function HomeView() {
 	const [pageData, setPageData] = useState<PageData | null>(null);
+	const [top5Articles, setTop5Articles] = useState<Top5Article[]>([]);
+	const [articleTags, setArticleTags] = useState<string[]>([]);
 	const [pageIndex, setPageIndex] = useState<number>(1);
 	const mottoRef = useRef<HTMLSpanElement>(null);
 	const articles = useMemo<Article[]>(() => pageData?.articles ?? [], [pageData]);
@@ -51,6 +52,21 @@ export default function HomeView() {
 
 	useTitle('首页');
 	useEffect(() => {
+		request.get('/article/queryTop5Articles')
+			.then(({ data: { top5Articles } }) => {
+				setTop5Articles(top5Articles ?? []);
+			})
+			.catch((err) => {
+				console.log('err', err);
+			});
+		request.get('/article/queryTags')
+			.then(({ data: { articleTags } }) => {
+				setArticleTags(articleTags ?? []);
+			})
+			.catch((err) => {
+				console.log('err', err);
+			});
+
 		const typed = new Typed(mottoRef.current, {
 			strings: ['永远做脚踏实地的追梦人', '不要做泛泛而谈的空想家'],
 			typeSpeed: 150,
@@ -146,7 +162,7 @@ export default function HomeView() {
 						<Separator/>
 						<div className={styles.latestArticles}>
 							{
-								pageData?.top5Articles?.map(({ pid, title }, index) => <span
+								top5Articles?.map?.(({ pid, title }, index) => <span
 									key={pid}
 									onClick={() => navigate(`/article/p/${pid}`)}
 								>
@@ -160,9 +176,10 @@ export default function HomeView() {
 						<Separator/>
 						<div className={styles.articleCategories}>
 							{
-								ArticleCategories?.map((category, index) => <div
+								ArticleCategories.map((category, index) => <div
 									key={index}
 									className={styles.rightCardItem}
+									onClick={() => navigate(`/search?type=1&q=${category}`)}
 								>
 									<Icon
 										icon={'ic:round-folder-open'}
@@ -180,9 +197,10 @@ export default function HomeView() {
 						<Separator/>
 						<div className={styles.articleTags}>
 							{
-								ArticleCategories?.map((category, index) => <div
+								articleTags?.map?.((category, index) => <div
 									key={index}
 									className={styles.rightCardItem}
+									onClick={() => navigate(`/search?type=2&q=${category}`)}
 								>
 									<Icon
 										icon={'ic:round-tag'}
