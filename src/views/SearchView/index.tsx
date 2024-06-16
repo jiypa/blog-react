@@ -9,12 +9,18 @@ import { Pagination } from '@mui/material';
 import useRequest from '../../hooks/useRequest';
 import useQueryParams from '../../hooks/useQueryParams';
 import useScrollTop from '../../hooks/useScrollTop';
+import useToast from '../../hooks/useToast';
 import { Article } from '../HomeView';
 import Banner from '../../components/Banner';
 import Empty from '../../components/Empty';
 import ArticleCard from '../../components/ArticleCard';
 import styles from './index.module.less';
 
+enum Type {
+	Title,
+	Category,
+	Tag,
+}
 interface PageData {
 	totalPages?: number;
 	articles?: Article[],
@@ -25,15 +31,37 @@ export default function SearchView() {
 	const [pageIndex, setPageIndex] = useState<number>(1);
 	const articles = useMemo<Article[]>(() => pageData?.articles ?? [], [pageData]);
 	const navigate = useNavigate();
-	const { queryParams } = useQueryParams();
+	const { toast } = useToast();
 	const { scrollTop } = useScrollTop();
 	const { request } = useRequest();
+	const { queryParams } = useQueryParams();
+	const type = queryParams.get('type');
 	const keyword = queryParams.get('q');
 
-	useTitle(`${keyword}的搜索结果`);
+	function getTitle(): string {
+		if (!type || !keyword) {
+			return '暂无搜索结果';
+		}
+
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		switch (+type) {
+		case Type.Title:
+			return `“${keyword ?? ''}”的搜索结果`;
+		case Type.Category:
+			return `分类：${keyword ?? ''}`;
+		case Type.Tag:
+			return `标签：${keyword ?? ''}`;
+		default:
+			return '暂无搜索结果';
+		}
+	}
+
+	useTitle(getTitle());
 	useEffect(() => {
 		request.get('/search', {
 			params: {
+				type,
 				keyword,
 				page: pageIndex,
 			}
@@ -42,14 +70,14 @@ export default function SearchView() {
 				setPageData(data);
 			})
 			.catch((err) => {
+				toast(err, 'error');
 				console.log('err', err);
 			});
 	}, [keyword, pageIndex]);
 
-
 	return (
 		<>
-			<Banner title={`${keyword}的搜索结果`}/>
+			<Banner title={getTitle()}/>
 			<main className={styles.container}>
 				{articles?.length ? <>
 					{

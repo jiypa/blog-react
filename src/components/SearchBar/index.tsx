@@ -38,7 +38,7 @@ export default function SearchBar(props: SearchBarProps) {
 		if (!value) {
 			toast('搜索文章关键字不能为空');
 		} else {
-			navigate(`/search?q=${value}`);
+			navigate(`/search?type=0&q=${value}`);
 			inputRef?.current?.blur?.();
 			setValue('');
 		}
