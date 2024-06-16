@@ -7,6 +7,7 @@
         <title>寄依的博客</title>
         <style>
             :root {
+                --global-font-size: 16px;
                 --global-font-family: '行楷-简', Courier, monospace;
 
                 --white-main-color: #dcdfe6;
@@ -24,8 +25,9 @@
                 --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, .09);
             }
             body {
-                color: var(--font-main-color);
+                font-size: var(--global-font-size);
                 font-family: var(--global-font-family);
+                color: var(--font-main-color);
             }
             * {
                 margin: 0;
