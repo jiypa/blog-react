@@ -4,6 +4,7 @@ import {
 	useTitle,
 	useMount,
 	useSetState,
+	useKeyPress,
 } from 'ahooks';
 import { MDEditorProps } from '@uiw/react-md-editor';
 import { Icon } from '@iconify/react';
@@ -30,16 +31,18 @@ export default function UserCreateView() {
 
 	const tipMenus: TipMenu[] = [{
 		icon: <Icon icon={'ic:round-more-vert'} width={'1.2rem'} height={'1.2rem'}/>,
-		options: ['基础信息', '保存文章', '返回上页'],
+		options: ['基础信息', '保存文章', '返回上页', '返回首页'],
 		handlers: [
 			() => articleMetaDialogRef?.current?.show(),
 			() => createArticle(),
 			() => navigate(-1),
+			() => navigate('/'),
 		],
 	}];
 
 	useTitle('创作中心');
 	useMount(() => articleMetaDialogRef?.current?.show());
+	useKeyPress('ctrl.s', () => createArticle());
 
 	function createArticle() {
 		if (!state.title) {

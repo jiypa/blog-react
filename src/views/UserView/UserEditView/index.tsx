@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useTitle, useSetState } from 'ahooks';
+import { useTitle, useSetState, useKeyPress } from 'ahooks';
 import { MDEditorProps } from '@uiw/react-md-editor';
 import { Icon } from '@iconify/react';
 import dayjs from 'dayjs';
@@ -37,11 +37,12 @@ export default function UserEditView() {
 
 	const tipMenus: TipMenu[] = [{
 		icon: <Icon icon={'ic:round-more-vert'} width={'1.2rem'} height={'1.2rem'}/>,
-		options: ['基础信息', '保存文章', '返回上页'],
+		options: ['基础信息', '保存文章', '返回上页', '返回首页'],
 		handlers: [
 			() => articleMetaDialogRef?.current?.show(),
 			() => saveArticle(),
 			() => navigate(-1),
+			() => navigate('/'),
 		],
 	}];
 
@@ -63,6 +64,7 @@ export default function UserEditView() {
 				console.log('err', err);
 			});
 	}, [pid]);
+	useKeyPress('ctrl.s', () => saveArticle());
 
 	function saveArticle() {
 		if (!state.title) {
