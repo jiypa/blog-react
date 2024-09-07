@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./src/assets/images/avatar.jpg" alt="寄依的博客" width="200" height="200">
+    <img src="./src/assets/images/avatar.jpg" alt="寄依的博客" style="width: 200px; height: 200px; border-radius: 50%">
 </p>
 <h1 align="center">
     寄依的博客
