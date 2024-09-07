@@ -18,7 +18,7 @@ import ArticleCard from '../../components/ArticleCard';
 import Separator from '../../components/Separator';
 import { ArticleCategories } from '../../components/ArticleMetaDialog';
 import styles from './index.module.less';
-import AvatarImg from '../../assets/images/img_avatar.png';
+import AvatarImg from '../../assets/images/avatar.jpg';
 
 export interface Article {
 	pid: number;
@@ -128,7 +128,7 @@ export default function HomeView() {
 						<img
 							src={AvatarImg}
 							alt={'寄依'}
-							style={{ width: '3rem', height: '3rem' }}
+							style={{ width: '4rem', height: '4rem', borderRadius: '50%' }}
 						/>
 						<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{'寄依'}</span>
 						<span>{'永远做脚踏实地的追梦人'}</span>
