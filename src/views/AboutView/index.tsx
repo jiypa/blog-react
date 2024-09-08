@@ -24,7 +24,7 @@ export default function AboutView() {
 						<li>
 							{'项目分为前台展示系统和后台管理系统两个子系统：'}
 							<ul>
-								<li>{'前台展示系统实现功能主要包括首页、搜索、归档、工具、关于、权限认证（JWT + localStorage）、SEO 优化等'}</li>
+								<li>{'前台展示系统实现功能主要包括首页、搜索、归档、工具、关于、权限认证（JWT + localStorage）等'}</li>
 								<li>{'后台管理系统实现功能主要包括文章的创建、删除、修改、查询等'}</li>
 							</ul>
 						</li>
