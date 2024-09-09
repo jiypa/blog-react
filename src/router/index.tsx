@@ -17,7 +17,6 @@ const router = createBrowserRouter([
 		// 首页
 		path: '/',
 		element: <App/>,
-		errorElement: <Navigate replace to={'/404'}/>,
 		children: [
 			{
 				// 搜索
@@ -66,6 +65,10 @@ const router = createBrowserRouter([
 				// 404
 				path: '404',
 				element: <NotFoundView/>,
+			},
+			{
+				path: '*',
+				element: <Navigate replace to={'/404'}/>,
 			},
 		],
 	},
