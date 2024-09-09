@@ -49,7 +49,7 @@ npm install
 npm run dev
 ```
 
-构建打包项目：
+打包构建项目：
 
 ```shell
 npm run build
