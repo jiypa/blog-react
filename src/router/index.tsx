@@ -1,43 +1,43 @@
+// 路由懒加载：https://juejin.cn/post/7358649535381635112
 import React from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-
-import App from '../App';
-import SearchView from '../views/SearchView';
-import ArchiveView from '../views/ArchiveView';
-import ToolView from '../views/ToolView';
-import AboutView from '../views/AboutView';
-import UserDesktopView from '../views/UserView/UserDesktopView';
-import UserCreateView from '../views/UserView/UserCreateView';
-import UserEditView from '../views/UserView/UserEditView';
-import ArticleView from '../views/ArticleView';
-import NotFoundView from '../views/NotFoundView';
 
 const router = createBrowserRouter([
 	{
 		// 首页
 		path: '/',
-		element: <App/>,
+		lazy: async () => ({
+			Component: (await import('../App')).default,
+		}),
 		errorElement: <Navigate replace to={'/404'}/>,
 		children: [
 			{
 				// 搜索
 				path: 'search',
-				element: <SearchView/>,
+				lazy: async () => ({
+					Component: (await import('../views/SearchView')).default,
+				}),
 			},
 			{
 				// 归档
 				path: 'archive',
-				element: <ArchiveView/>,
+				lazy: async () => ({
+					Component: (await import('../views/ArchiveView')).default,
+				}),
 			},
 			{
 				// 工具
 				path: 'tool',
-				element: <ToolView/>,
+				lazy: async () => ({
+					Component: (await import('../views/ToolView')).default,
+				}),
 			},
 			{
 				// 关于
 				path: 'about',
-				element: <AboutView/>,
+				lazy: async () => ({
+					Component: (await import('../views/AboutView')).default,
+				}),
 			},
 			{
 				// 用户中心
@@ -45,27 +45,37 @@ const router = createBrowserRouter([
 				children: [
 					{
 						path: 'desktop',
-						element: <UserDesktopView/>
+						lazy: async () => ({
+							Component: (await import('../views/UserView/UserDesktopView')).default,
+						}),
 					},
 					{
 						path: 'create',
-						element: <UserCreateView/>
+						lazy: async () => ({
+							Component: (await import('../views/UserView/UserCreateView')).default,
+						}),
 					},
 					{
 						path: 'edit/p/:pid',
-						element: <UserEditView/>
+						lazy: async () => ({
+							Component: (await import('../views/UserView/UserEditView')).default,
+						}),
 					},
 				],
 			},
 			{
 				// 文章详情
 				path: 'article/p/:pid',
-				element: <ArticleView/>,
+				lazy: async () => ({
+					Component: (await import('../views/ArticleView')).default,
+				}),
 			},
 			{
 				// 404
 				path: '404',
-				element: <NotFoundView/>,
+				lazy: async () => ({
+					Component: (await import('../views/NotFoundView')).default,
+				}),
 			},
 		],
 	},
