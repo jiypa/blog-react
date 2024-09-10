@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./public/logo.png" alt="寄依的博客" width="200" height="200">
+    <img src="./public/logo.png" alt="寄依的博客" width="150" height="150">
 </p>
 <h1 align="center">
     寄依的博客
@@ -27,13 +27,21 @@
 - 前台展示系统实现功能主要包括首页、搜索、归档、工具、关于、权限认证（JWT + localStorage）等
 - 后台管理系统实现功能主要包括文章的创建、删除、修改、查询等
 
+## 🖥 项目截图
+
 ## 🔥 项目亮点
 
 ✅ 适配 PC 端和移动端
 
+✅ 资源 HTTP 缓存优化
+
 ✅ 列表数据分页加载
 
-✅ 图片压缩 & 资源 Gzip 压缩
+✅ 路由懒加载 & 代码分包
+
+✅ 静态资源采用 CDN 加速
+
+✅ 图片压缩 & 资源 Gzip 压缩 & 代码打包压缩
 
 ## 🚀 安装 & 运行 & 构建
 
