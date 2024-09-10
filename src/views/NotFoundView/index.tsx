@@ -15,7 +15,7 @@ export default function NotFoundView() {
 				<Box className={styles.content}>
 					<span className={styles.descText}>{'Oops!'}</span>
 					<span className={styles.descText}>{'啊哦，您的小可爱好像走丢了~'}</span>
-					<span className={styles.descText}>{'Not Found'}</span>
+					<span className={styles.descText}>{'404 Not Found'}</span>
 					<Box className={styles.button} onClick={() => navigate('/')}>{'回到首页'}</Box>
 				</Box>
 			</Box>
