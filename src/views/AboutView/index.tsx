@@ -17,7 +17,7 @@ export default function AboutView() {
 						<li>
 							{'项目整体采用前后端分离式开发：'}
 							<ul>
-								<li>{'前端为基于 React.js 的 SPA 应用，UI 框架采用 MUI，打包工具采用 Vite，CI/CD 采用 Vercel'}</li>
+								<li>{'前端为基于 React.js 的 SPA 应用，UI 框架采用 Material UI，打包工具采用 Vite，CI/CD 采用 Vercel'}</li>
 								<li>{'后端采用 Egg.js 开发框架，数据库采用 MySQL'}</li>
 							</ul>
 						</li>
