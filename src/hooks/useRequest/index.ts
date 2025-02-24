@@ -12,7 +12,7 @@ export interface Response {
 // 请求响应拦截器
 export default function useRequest() {
 	const axiosInstance: AxiosInstance = axios.create({
-		baseURL: 'https://api.yeebay.top:7001/api/v1',
+		baseURL: 'https://nav.megabyte.top/api/blog',
 		timeout: 10000,
 	});
 	const navigate = useNavigate();
