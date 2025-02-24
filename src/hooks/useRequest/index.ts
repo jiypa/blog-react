@@ -13,7 +13,7 @@ export interface Response {
 export default function useRequest() {
 	const axiosInstance: AxiosInstance = axios.create({
 		baseURL: 'https://api.yeebay.top:7001/api/v1',
-		timeout: 5000,
+		timeout: 10000,
 	});
 	const navigate = useNavigate();
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
